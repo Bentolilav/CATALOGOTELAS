@@ -30,7 +30,7 @@ header.band{background:var(--band);color:var(--bandfg)}
 header .wrap{padding-block:22px 18px;display:flex;flex-wrap:wrap;gap:14px 24px;align-items:flex-end;justify-content:space-between}
 .brand img{height:34px;width:auto;display:block}
 .brand p{margin:10px 0 0;font:600 12px/1.3 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
-.brand h1{margin:4px 0 0;font:700 clamp(22px,4vw,30px)/1.15 var(--f-display);text-wrap:balance}
+.brand h1{margin:12px 0 0;font:700 clamp(22px,4vw,30px)/1.15 var(--f-display);text-wrap:balance}
 .hmeta{font-size:12.5px;color:#C9D6E4;max-width:340px}
 .hmeta b{color:#fff;font-weight:600}
 
@@ -166,6 +166,11 @@ textarea.fallback{width:100%;min-height:140px;border:1px solid var(--line);borde
 .cta{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:22px}
 .cta q{font:600 italic 17px var(--f-display);color:var(--sec);quotes:'“' '”'}
 .cath{font:800 22px var(--f-display);margin:0}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:-20px}
+.info div{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.info div>b{font:700 14.5px var(--f-display);color:var(--fg)}
+.info span{font-size:13.5px;line-height:1.5;color:var(--muted)}
+.info span b{color:var(--fg)}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:12px}
 footer .wrap{padding-block:18px 100px;display:flex;flex-wrap:wrap;gap:6px 20px;justify-content:space-between}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -175,10 +180,8 @@ footer .wrap{padding-block:18px 100px;display:flex;flex-wrap:wrap;gap:6px 20px;j
   <div class="wrap">
     <div class="brand">
       <a href="./" aria-label="Ir al inicio de IDEATEX"><img src="logo-w.png" alt="IDEATEX" width="187" height="34"></a>
-      <p>Catálogo de telas</p>
-      <h1>Elige tu tela y calcula cuánto te sale</h1>
+      <h1>Catálogo de telas</h1>
     </div>
-    <div class="hmeta">Precios en $ y en Bs del día, con su base imponible e impuestos. Telas de punto y deportivas se venden <b>por kilo</b>; las planas e impermeables, <b>por metro</b>. Para hacer tu pedido, escríbele a una vendedora por WhatsApp.</div>
   </div>
 </header>
 <section class="home" id="inicio"><div class="wrap">
@@ -209,6 +212,12 @@ footer .wrap{padding-block:18px 100px;display:flex;flex-wrap:wrap;gap:6px 20px;j
   </div></div>
   <div class="cta"><q>Ideatex — Calidad que se teje con experiencia</q><a class="btn" href="#catalogo">Ver el catálogo de telas ↓</a></div>
   <h2 class="cath" id="catalogo">Catálogo de telas</h2>
+  <div class="info">
+    <div><b>Cómo se venden nuestras telas</b><span>Las telas de punto y deportivas se venden <b>por kilo</b>; las telas planas e impermeables, <b>por metro</b>. En cada tela verás su unidad de venta y, en las de kilo, cuántos metros rinde aproximadamente cada kilo.</span></div>
+    <div><b>Compra mínima</b><span><b>3 kg o 3 metros</b> por tela, según su unidad de venta.</span></div>
+    <div><b>Recortes</b><span>También contamos con <b>recortes</b> que pueden tener menos del mínimo. Pregúntale a tu vendedora qué hay disponible.</span></div>
+    <div><b>Hay mucho más</b><span>Tenemos muchas más telas y colores disponibles que todavía no aparecen en la web. Si no ves lo que buscas, escríbenos.</span></div>
+  </div>
 </div></section>
 
 <div class="rail">
