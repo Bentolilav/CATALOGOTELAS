@@ -1,1 +1,1 @@
-{"cleanUrls": true}
+{"cleanUrls": true, "redirects": [{"source": "/catalogo", "destination": "/", "permanent": true}]}
