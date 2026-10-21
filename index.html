@@ -36,7 +36,7 @@ header.band .wrap{display:flex;align-items:center;justify-content:space-between;
 header.band .mos{display:grid;grid-template-columns:repeat(4,72px);gap:6px;flex:none}
 header.band .mos img{aspect-ratio:1/1;border-radius:10px}
 header.band .mos img:nth-child(1){border-top-left-radius:22px}header.band .mos img:nth-child(4){border-bottom-right-radius:22px}
-@media (max-width:640px){header.band .wrap{flex-direction:column;align-items:flex-start}header.band .mos{grid-template-columns:repeat(4,1fr);width:100%}}
+@media (max-width:640px){header.band .wrap{flex-direction:column;align-items:flex-start}header.band .gbtn{align-self:flex-start}header.band .mos{grid-template-columns:repeat(4,1fr);width:100%}}
 .hmeta{font-size:12.5px;color:#C9D6E4;max-width:340px}
 .hmeta b{color:#fff;font-weight:600}
 
@@ -185,6 +185,24 @@ textarea.fallback{width:100%;min-height:140px;border:1px solid var(--line);borde
 .uns span{font-size:13.5px;line-height:1.5}
 .cta{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:22px}
 .cta q{font:600 italic 17px var(--f-display);color:var(--sec);quotes:'“' '”'}
+.gbtn{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.45);background:transparent;color:var(--bandfg);border-radius:999px;padding:9px 16px;font:600 14px var(--f-display);cursor:pointer;align-self:center}
+.gbtn:hover{background:rgba(255,255,255,.1)}
+.gd{position:fixed;inset:0;z-index:70;background:rgba(10,16,24,.6);display:flex;align-items:center;justify-content:center;padding:16px}
+.gbox{position:relative;background:var(--surface);border-radius:18px;width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;padding:26px 24px 20px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.gx{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:20px;cursor:pointer}
+.geb{font:600 12px var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--sec)}
+.gbox h2{font:800 24px/1.15 var(--f-display);margin:6px 0 16px;color:var(--fg)}
+.gs{animation:gin .25s ease}
+@keyframes gin{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+.gn{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--dom);color:#fff;font:800 16px var(--f-display)}
+.gs h3{font:700 19px var(--f-display);margin:10px 0 6px;color:var(--fg)}
+.gs p{margin:0 0 10px;font-size:15px;line-height:1.55;color:var(--fg)}
+.gs ul{margin:0;padding:12px 14px 12px 30px;background:var(--chip);border-radius:var(--r);font-size:14px;line-height:1.5;color:var(--muted)}
+.gs li+li{margin-top:6px}.gs li b{color:var(--fg)}
+.gfoot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px}
+.gdots{display:flex;gap:6px}.gdots i{width:8px;height:8px;border-radius:50%;background:var(--line)}.gdots i.on{background:var(--dom);width:22px;border-radius:4px}
+.gact{display:flex;gap:8px}
+@media (prefers-reduced-motion:reduce){.gs{animation:none}}
 .cath{font:800 22px var(--f-display);margin:0}
 .info{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:-20px}
 .info div{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
@@ -203,17 +221,10 @@ footer .wrap{padding-block:18px 100px;display:flex;flex-wrap:wrap;gap:6px 20px;j
       <h1>Catálogo de telas</h1>
       <p class="sub">Más de 35 años tejiendo calidad en Venezuela</p>
     </div>
+    <button class="gbtn" id="gopen" aria-haspopup="dialog"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4M12 17h.01"/></svg>¿Cómo cotizar?</button>
   </div>
 </header>
-<section class="home" id="inicio"><div class="wrap">
-  <h2 class="cath" id="catalogo">Cómo comprar</h2>
-  <div class="info">
-    <div><b>Cómo se venden nuestras telas</b><span>Las telas de punto y deportivas se venden <b>por kilo</b>; las telas planas e impermeables, <b>por metro</b>. En cada tela verás su unidad de venta y, en las de kilo, cuántos metros rinde aproximadamente cada kilo.</span></div>
-    <div><b>Compra mínima</b><span><b>3 kg o 3 metros</b> por tela, según su unidad de venta.</span></div>
-    <div><b>Recortes</b><span>También contamos con <b>recortes</b> que pueden tener menos del mínimo. Puedes consultar con nuestro equipo de ventas para conocer su disponibilidad.</span></div>
-    <div><b>Hay mucho más</b><span>Tenemos muchas más telas y colores disponibles que todavía no aparecen en la web. Si no ves lo que buscas, escríbenos.</span></div>
-  </div>
-</div></section>
+
 
 <div class="rail">
   <div class="wrap">
@@ -232,6 +243,21 @@ footer .wrap{padding-block:18px 100px;display:flex;flex-wrap:wrap;gap:6px 20px;j
 <button class="tray" id="tray" hidden><span class="badge" id="tcount">0</span><span id="tlab">Cotización</span><span class="num" id="ttot"></span></button>
 <div class="scrim" id="scrim" hidden></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" hidden></div>
+<div class="gd" id="gd" role="dialog" aria-modal="true" aria-labelledby="gtit" hidden><div class="gbox">
+  <button class="gx" id="gx" aria-label="Cerrar">×</button>
+  <span class="geb">Bienvenido a IDEATEX</span>
+  <h2 id="gtit">¿Cómo cotizar con nosotros?</h2>
+  <div class="gsteps" id="gsteps">
+    <section class="gs" data-s="0"><span class="gn">1</span><h3>Elige tu tela</h3><p>Busca por nombre o uso, o filtra por familia. Toca una tela para ver sus fotos (con la lupa ves el tejido de cerca), su ficha técnica y su precio en $.</p>
+      <ul><li><b>Telas de punto y deportivas:</b> se venden por kilo. En cada una te decimos cuántos metros rinde un kilo.</li><li><b>Telas planas e impermeables:</b> se venden por metro.</li></ul></section>
+    <section class="gs" data-s="1" hidden><span class="gn">2</span><h3>Arma tu pedido</h3><p>Indica la cantidad y toca <b>Agregar a mi pedido</b>. Puedes sumar varias telas y ver el total con impuestos.</p>
+      <ul><li><b>Compra mínima:</b> 3 kg o 3 metros por tela.</li><li><b>Recortes:</b> tenemos piezas de menos del mínimo. Pregunta por su disponibilidad.</li></ul></section>
+    <section class="gs" data-s="2" hidden><span class="gn">3</span><h3>Envíalo por WhatsApp</h3><p>Toca <b>Enviar por WhatsApp</b> y tu pedido le llega a una de nuestras vendedoras. Ella te confirma disponibilidad, colores y precio final.</p>
+      <ul><li><b>Hay mucho más:</b> tenemos telas y colores que todavía no están en la web. Si no ves lo que buscas, escríbenos.</li></ul></section>
+  </div>
+  <div class="gfoot"><div class="gdots" id="gdots"><i class="on"></i><i></i><i></i></div>
+    <div class="gact"><button class="btn ghost" id="gprev" hidden>Atrás</button><button class="btn" id="gnext">Siguiente</button></div></div>
+</div></div>
 <div class="lb" id="lb" hidden><button class="lx" id="lx" aria-label="Cerrar zoom">×</button><img id="lbi" alt=""><span class="lh">Toca la foto para acercar · arrastra para mover</span></div>
 <div class="toast" id="toast" hidden></div>
 
@@ -443,8 +469,19 @@ $('#lb').addEventListener('pointerdown',e=>{if(e.target.id==='lx')return;const l
 $('#lb').addEventListener('pointermove',e=>{const lb=$('#lb'),i=$('#lbi');if(!lb.classList.contains('z'))return;if(e.pointerType==='mouse'||lbDrag){if(lbDrag)lbDrag.moved=true;zOrigin(i,i,e)}});
 $('#lb').addEventListener('pointerup',e=>{const lb=$('#lb');if(lbDrag&&!lbDrag.moved&&!lbDrag.first&&e.target.id==='lbi')lb.classList.remove('z');lbDrag=null});
 $('#lx').addEventListener('click',closeLB);
+/* guía de bienvenida */
+let gi2=0;
+function gShow(i){gi2=i;document.querySelectorAll('#gsteps .gs').forEach(x=>x.hidden=+x.dataset.s!==i);document.querySelectorAll('#gdots i').forEach((d,j)=>d.classList.toggle('on',j===i));$('#gprev').hidden=i===0;$('#gnext').textContent=i===2?'Empezar a cotizar':'Siguiente'}
+function gOpen(){gShow(0);$('#gd').hidden=false;$('#gnext').focus()}
+function gClose(){$('#gd').hidden=true;try{localStorage.setItem('idx-guia','1')}catch(e){}}
+$('#gopen').addEventListener('click',gOpen);
+$('#gx').addEventListener('click',gClose);
+$('#gprev').addEventListener('click',()=>gShow(Math.max(0,gi2-1)));
+$('#gnext').addEventListener('click',()=>gi2<2?gShow(gi2+1):gClose());
+$('#gd').addEventListener('click',e=>{if(e.target.id==='gd')gClose()});
+{let seen=false;try{seen=localStorage.getItem('idx-guia')==='1'}catch(e){};if(!seen)setTimeout(gOpen,400)}
 $('#scrim').addEventListener('click',close);
-document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(!$('#lb').hidden)return closeLB();if(!$('#sheet').hidden)close()});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(!$('#gd').hidden)return gClose();if(!$('#lb').hidden)return closeLB();if(!$('#sheet').hidden)close()});
 if(CLI)$('#tlab').textContent='Mi pedido';
 drawTasa();renderFams();render();drawTray();
 
