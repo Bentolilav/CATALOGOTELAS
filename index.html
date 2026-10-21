@@ -228,7 +228,7 @@ const DATA = {"fam": {"dep": "Deportivas", "conf": "Confort y algodón", "piq": 
 const MODE = 'cliente';
 const VEND = [{"name": "Michelle", "n": "584241930489"}, {"name": "Oriana", "n": "584241930508"}, {"name": "Yasmin", "n": "584141087292"}];
 const CLI = MODE==='cliente';
-let TASA={v:883.3963,f:'lista de precios',src:'lista'};
+let TASA={v:0,f:'',src:'lista'};
 if(CLI)TASA={v:/*TASA*/0/*FIN*/,f:''};
 if(!CLI)try{const s=JSON.parse(localStorage.getItem('idx-tasa')||'null');if(s&&s.v)TASA=s}catch(e){}
 const nm=n=>n.toLocaleString('es-VE',{maximumFractionDigits:2});
