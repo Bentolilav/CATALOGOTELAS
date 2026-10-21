@@ -84,7 +84,7 @@ section .lede{margin:0 0 14px;color:var(--muted);font-size:13.5px;max-width:65ch
 @media (min-width:1100px){.sheet{width:min(1320px,96vw);max-height:94vh}.sh-in:not(.one){grid-template-columns:.95fr 1fr 1fr;align-items:start}.gal .big{max-height:62vh}.sheet .kgx{font-size:13px}}
 .sh-in.one{grid-template-columns:1fr!important;max-width:640px;margin:0 auto}.sheet:has(.sh-in.one){width:min(700px,94vw)}
 @media (min-width:860px) and (max-width:1099px){.sh-in .gal{grid-row:span 2}.sh-in{align-items:start}}
-@media (max-width:859px){.sh-in .gal{display:contents}.sh-in .big,.sh-in .thumbs{order:0}.sh-in .det{order:1}.sh-in .gal .kgx{order:2}.sh-in .det+.det{order:3}}
+@media (max-width:859px){.sh-in .gal{display:contents}.sh-in .big,.sh-in .thumbs{order:0}.sh-in .det{order:1}.sh-in .gal .kgx,.sh-in .gal .calc{order:2}.sh-in .det+.det{order:3}}
 .sh-in{padding:16px max(18px,env(safe-area-inset-right,0px)) 0 max(18px,env(safe-area-inset-left,0px));display:grid;gap:20px}
 @media (min-width:860px){.sh-in{grid-template-columns:1.05fr 1fr;padding:22px 24px 0}}
 .x{position:sticky;top:0;float:right;margin:10px 10px 0 0;z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:20px;line-height:1}
@@ -150,6 +150,14 @@ textarea.fallback{width:100%;min-height:140px;border:1px solid var(--line);borde
 .kgx{background:var(--chip);border-radius:var(--r);padding:12px 14px;font-size:13.5px;line-height:1.5}
 .kgx b{font-family:var(--f-display)}
 .kgx ul{margin:6px 0 0;padding-left:18px}
+.calc{border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:8px;font-size:13.5px;background:var(--surface)}
+.calc b{font-family:var(--f-display)}
+.calc .crow{display:grid;grid-template-columns:1fr 96px;align-items:center;gap:10px}
+.calc .cor{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+.calc label{font:600 12px var(--f-display);color:var(--muted)}
+.calc input{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:8px;padding:7px 8px;background:var(--surface);font:inherit}
+.calc .cres{margin:0;color:var(--muted)}.calc .cres b{color:var(--fg)}
+.calc #cuse{align-self:flex-start;padding:7px 14px}
 .ref{font:500 11.5px var(--f-body);color:var(--muted);letter-spacing:.02em}
 .home .wrap{padding-block:24px 10px;display:flex;flex-direction:column;gap:34px}
 .hi{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
@@ -329,7 +337,10 @@ function drawSheet(){
    `<div class="var" aria-pressed="true" style="cursor:default"><span class="vl">Precio base</span><span class="vp num"><b>${fmt(v.p)}</b><small>${ulab(v.unit)}${v.ren?'':''}</small></span></div>`;
   const row=(t,d)=>d&&!/^no aplica$/i.test(d)?`<dt>${t}</dt><dd>${d}</dd>`:'';
   $('#sheet').innerHTML=`<button class="x" id="x" aria-label="Cerrar">×</button><div class="sh-in">
-   <div class="gal">${gal}${v.ren?`<div class="kgx"><b>¿Cuánto rinde por metro?</b> Esta tela se vende <b>únicamente por kilo</b>. Cada kilo rinde aproximadamente <b>${nm(v.ren)} metros</b>${v.anc?` de tela de ${(a=>/m/i.test(a)?a.toLowerCase():a+' m')(v.anc.replace(/\s*\(.*\)/,'').trim())} de ancho`:''}. Como referencia, eso equivale a unos <b>${fmt(xm(v).b)}</b> por metro (precio base, antes de impuestos); no se vende por metro. Para saber cuántos kilos necesitas, divide los metros entre ${nm(v.ren)}. Ejemplo: 10 metros ≈ ${nm(Math.ceil(10/v.ren*10)/10)} kg.</div>`:''}</div>
+   <div class="gal">${gal}${v.ren?`<div class="kgx"><b>¿Cuánto rinde por metro?</b> Esta tela se vende <b>únicamente por kilo</b>. Cada kilo rinde aproximadamente <b>${nm(v.ren)} metros</b>${v.anc?` de tela de ${(a=>/m/i.test(a)?a.toLowerCase():a+' m')(v.anc.replace(/\s*\(.*\)/,'').trim())} de ancho`:''}. Como referencia, eso equivale a unos <b>${fmt(xm(v).b)}</b> por metro (precio base, antes de impuestos); no se vende por metro. </div><div class="calc"><b>Calculadora: ¿cuántos kilos necesito?</b>
+<div class="crow"><label for="cm">Metros que necesitas</label><input id="cm" inputmode="decimal" placeholder="Ej. 20" autocomplete="off"></div>
+<span class="cor">o calcúlalo por prendas</span><div class="crow"><label for="cp2">Número de prendas</label><input id="cp2" inputmode="numeric" placeholder="Ej. 50" autocomplete="off"></div><div class="crow"><label for="cpm">Metros por prenda</label><input id="cpm" inputmode="decimal" placeholder="Ej. 1,2" autocomplete="off"></div>
+<p id="cres" class="cres">Escribe los metros, o las prendas y cuántos metros lleva cada una.</p><button class="btn" id="cuse" hidden>Usar esta cantidad</button></div>`:''}</div>
    <div class="det"><div><span class="cat">${FAM[it.fam]}${v.cat?' · '+v.cat:''}</span><h2>${it.name}</h2></div>
    ${vars}
    <dl class="ficha">${row('Referencia',v.ref)}${row('Composición',v.comp)}${row('Densidad',v.den)}${row('Ancho',v.anc)}${v.ren?row('Rendimiento','1 kg rinde ≈ '+nm(v.ren)+' metros'):''}${row('Usos',v.rec)}</dl></div>
@@ -341,6 +352,16 @@ function drawSheet(){
    ${CLI?`<div class="acts">${waBtns('Hola, quiero información de esta tela:\n'+vtext(it,v),'Consultar')}</div>`:`<div class="acts"><button class="btn ghost" id="cp">Copiar ficha para WhatsApp</button><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(vtext(it,v))}">Enviar por WhatsApp</a></div>`}
    ${it.name.startsWith('Piqué')&&it.v.some(x=>/^Combo/.test(x.label))?'<p class="note">El combo es el juego de cuello y puños al tono de la tela.</p>':''}
    </div></div>`;
+}
+function calcKg(src){
+  const v=cur.v[vi],P=x=>parseFloat(String(x||'').replace(',','.'))||0;
+  if(src==='cm'){$('#cp2').value='';$('#cpm').value=''}else $('#cm').value='';
+  const m=src==='cm'?P($('#cm').value):P($('#cp2').value)*P($('#cpm').value);
+  const r=$('#cres'),b=$('#cuse');
+  if(!(m>0)||!v.ren){r.innerHTML='Escribe los metros, o las prendas y cuántos metros lleva cada una.';b.hidden=true;return}
+  const kg=m/v.ren,sug=Math.max(MINQ,Math.ceil(kg));
+  r.innerHTML=`Para <b>${nm(Math.round(m*10)/10)} metros</b> necesitas aprox. <b>${nm(Math.ceil(kg*10)/10)} kg</b>. Te sugerimos pedir <b>${sug} kg</b>${kg<MINQ?' (compra mínima)':''}.`;
+  b.hidden=false;b.dataset.kg=sug;
 }
 function copy(text){
   const done=()=>toast('Copiado. Pégalo en WhatsApp');
@@ -402,6 +423,7 @@ document.addEventListener('click',e=>{
     const f=new Date().toLocaleDateString('es-VE',{day:'2-digit',month:'2-digit',year:'numeric'});TASA={v:n,f,src:'manual'};try{localStorage.setItem('idx-tasa',JSON.stringify(TASA))}catch(e){}
     editT=false;drawTasa();render();drawTray();
     if(tdoc)tdoc.set({v:n,f}).then(()=>toast('Tasa guardada para todo el equipo'),()=>toast('Tasa aplicada solo en este equipo'));else toast('Tasa aplicada en este equipo');return}
+  if(t.id==='cuse'){qtyv=+t.dataset.kg;$('#qty').value=qtyv;$('#subt').textContent=subTxt(cur.v[vi],qtyv);toast('Cantidad: '+qtyv+' kg');return}
   if(t.dataset.g){gi=+t.dataset.g;drawSheet();return}
   if(t.dataset.v){vi=+t.dataset.v;drawSheet();return}
   if(t.dataset.q){const v=cur.v[vi];qtyv=Math.max(MINQ,Math.round((parseFloat(String($('#qty').value).replace(',','.'))||0)+ +t.dataset.q));$('#qty').value=qtyv;$('#subt').textContent=subTxt(v,qtyv);return}
@@ -414,9 +436,10 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('input',e=>{
   if(e.target.id==='q'){q=e.target.value;render()}
+  if(['cm','cp2','cpm'].includes(e.target.id)&&cur)calcKg(e.target.id);
   if(e.target.id==='qty'&&cur){qtyv=parseFloat(e.target.value.replace(',','.'))||0;$('#subt').textContent=subTxt(cur.v[vi],qtyv)}
-document.addEventListener('change',e=>{if(e.target.id==='qty'&&cur&&qtyv<MINQ){qtyv=MINQ;e.target.value=MINQ;$('#subt').textContent=subTxt(cur.v[vi],MINQ);toast('La compra mínima es de 3 '+(cur.v[vi].unit==='m'?'metros':'kg'))}});
 });
+document.addEventListener('change',e=>{if(e.target.id==='qty'&&cur&&qtyv<MINQ){qtyv=MINQ;e.target.value=MINQ;$('#subt').textContent=subTxt(cur.v[vi],MINQ);toast('La compra mínima es de 3 '+(cur.v[vi].unit==='m'?'metros':'kg'))}});
 $('#scrim').addEventListener('click',close);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#sheet').hidden)close()});
 if(CLI)$('#tlab').textContent='Mi pedido';
