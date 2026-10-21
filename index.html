@@ -189,7 +189,6 @@ footer .wrap{padding-block:18px 100px;display:flex;flex-wrap:wrap;gap:6px 20px;j
       <h1>Catálogo de telas</h1>
       <p class="sub">Más de 35 años tejiendo calidad en Venezuela</p>
     </div>
-    <div class="mos" id="mos" aria-hidden="true"></div>
   </div>
 </header>
 <section class="home" id="inicio"><div class="wrap">
@@ -415,6 +414,6 @@ $('#scrim').addEventListener('click',close);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#sheet').hidden)close()});
 if(CLI)$('#tlab').textContent='Mi pedido';
 drawTasa();renderFams();render();drawTray();
-$('#mos').innerHTML=['c1','c2','c3','c4'].map(k=>`<img src="cover/${k}.jpg" alt="" loading="lazy">`).join('');
+
 </script>
 </body></html>
