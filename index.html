@@ -210,13 +210,14 @@ textarea.fallback{width:100%;min-height:140px;border:1px solid var(--line);borde
 .info span{font-size:13.5px;line-height:1.5;color:var(--muted)}
 .info span b{color:var(--fg)}
 .loc .wrap{padding-block:8px 28px}
-.locc{display:grid;grid-template-columns:1fr 1.3fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.locc{display:grid;grid-template-columns:1fr;gap:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .loct{padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
 .loct h2{font:800 22px var(--f-display);margin:0;color:var(--fg)}
 .loct p{margin:0 0 8px;color:var(--muted);line-height:1.55}
 .loct .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.locc:has(.locm){grid-template-columns:1fr 1.3fr}
 .locm{width:100%;height:100%;min-height:240px;border:0;display:block;background:var(--chip)}
-@media (max-width:720px){.locc{grid-template-columns:1fr}.locm{min-height:220px}}
+@media (max-width:720px){.locc,.locc:has(.locm){grid-template-columns:1fr}.locm{min-height:220px}}
 footer a{color:inherit}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:12px}
 footer .wrap{padding-block:18px 100px;display:flex;flex-wrap:wrap;gap:6px 20px;justify-content:space-between}
@@ -250,8 +251,7 @@ footer .wrap{padding-block:18px 100px;display:flex;flex-wrap:wrap;gap:6px 20px;j
 <section class="loc" id="ubicacion"><div class="wrap"><div class="locc">
   <div class="loct"><span class="geb">Visítanos</span><h2>Ideatex C.A.</h2>
     <p>Calle 1, Zona Industrial La Yaguara<br>Caracas 1000, Distrito Capital, Venezuela</p>
-    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Ideatex+C.A.,+La+Yaguara,+Zona+Industrial,+Calle+1,+Caracas,+Venezuela" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Cómo llegar en Google Maps</a></div>
-  <iframe class="locm" title="Mapa de Ideatex C.A. en La Yaguara, Caracas" src="https://maps.google.com/maps?q=Ideatex+C.A.,+La+Yaguara,+Zona+Industrial,+Calle+1,+Caracas,+Venezuela&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Ideatex+C.A.,+La+Yaguara,+Zona+Industrial,+Calle+1,+Caracas,+Venezuela" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Cómo llegar en Google Maps</a></div><iframe class="locm" title="Mapa de Ideatex C.A. en La Yaguara, Caracas" src="https://maps.google.com/maps?q=Ideatex+C.A.,+La+Yaguara,+Zona+Industrial,+Calle+1,+Caracas,+Venezuela&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div></div></section>
 <footer><div class="wrap"><span>Ideatex — Calidad que se teje con experiencia</span><span><a href="https://www.google.com/maps/search/?api=1&query=Ideatex+C.A.,+La+Yaguara,+Zona+Industrial,+Calle+1,+Caracas,+Venezuela" target="_blank" rel="noopener">La Yaguara, Caracas</a> · Precios sujetos a cambio sin previo aviso</span></div></footer>
 
