@@ -238,7 +238,7 @@ function card(it){
   const v=minV(it), many=it.v.length>1;
   const ph=it.img.length?`<img loading="lazy" src="t/${it.img[0]}.jpg" alt="${it.name}">${it.img.length>1?`<span class="cnt">${it.img.length} fotos</span>`:''}`:`<div class="noimg">Foto pendiente</div>`;
   return `<button class="card" data-id="${it.id}"><div class="ph">${ph}</div><div class="cb"><span class="cat">${v.cat||FAM[it.fam]}</span><h3>${it.name}</h3>
-  <div class="pr"><b class="num">${many?'<small>desde </small>':''}${fmt(v.p)}<small>${ulab(v.unit)}</small></b>${`<span class="bs num">Con impuestos: <b>${fmt(usdT(v,1).tot)}</b>${bsOf(v)?` · <b>${fbs(bsOf(v))}</b>`:''}</span>`}${v.ren?`<span class="mt num">1 kg rinde ≈ ${nm(v.ren)} m · el metro sale en ≈ <b>${fmt(xm(v).t)}</b> con impuestos</span>`:''}</div></div></button>`;
+  <div class="pr"><b class="num">${many?'<small>desde </small>':''}${fmt(v.p)}<small>${ulab(v.unit)}</small></b>${`<span class="bs num">Con impuestos: <b>${fmt(usdT(v,1).tot)}</b>${bsOf(v)?` · <b>${fbs(bsOf(v))}</b>`:''}</span>`}${v.ren?`<span class="mt num">1 kg rinde ≈ ${nm(v.ren)} m · referencia ≈ <b>${fmt(xm(v).b)}</b> el metro (base). Se vende solo por kilo</span>`:''}</div></div></button>`;
 }
 function render(){
   const qq=norm(q).trim().split(/\s+/).filter(Boolean);
@@ -259,7 +259,7 @@ function vtext(it,v){
   if(v.comp)L.push(`Composición: ${v.comp}`);
   if(v.den&&!/no aplica/i.test(v.den))L.push(`Densidad: ${v.den}`);
   if(v.anc)L.push(`Ancho: ${v.anc}`);
-  if(v.ren)L.push(`Rendimiento: 1 kg rinde ≈ ${nm(v.ren)} metros · el metro sale en ≈ ${fmt(xm(v).t)} con impuestos${xm(v).bs?` (${fbs(xm(v).bs)} pagando en Bs)`:''}`);
+  if(v.ren)L.push(`Rendimiento: 1 kg rinde ≈ ${nm(v.ren)} metros (se vende solo por kilo; referencia ≈ ${fmt(xm(v).b)} el metro, precio base)`);
   if(v.rec)L.push(`Ideal para: ${v.rec}`);
   {const u=usdT(v,1),s=bsT(v,1),un=ulab(v.unit);
     L.push('',`*Pago en $* (${un.slice(1)})`,`Base imponible: ${fmt(u.b)} · IVA 16%: ${fmt(u.iva)} · IGTF 3%: ${fmt(u.igtf)}`,`Total: *${fmt(u.tot)}${un}*`);
@@ -272,7 +272,7 @@ function close(){$('#scrim').hidden=true;$('#sheet').hidden=true;document.body.s
 function drawSheet(){
   const it=cur, v=it.v[vi];
   const gal=it.img.length?`<div class="big"><img src="f/${it.img[gi]}.jpg" alt="${it.name}, foto ${gi+1}"></div>${it.img.length>1?`<div class="thumbs">${it.img.map((k,i)=>`<button data-g="${i}" aria-current="${i===gi}" aria-label="Foto ${i+1}"><img src="t/${k}.jpg" alt=""></button>`).join('')}</div>`:''}`:`<div class="big"><div class="ph" style="height:100%"><div class="noimg">Esta tela todavía no tiene foto en la carpeta del catálogo de WhatsApp.</div></div></div>`;
-  const vars=it.v.length>1?`<div class="vars">${it.v.map((x,i)=>`<button class="var" data-v="${i}" aria-pressed="${i===vi}"><span class="vl">${x.label}<small>${x.comp||''}${x.ren?' · '+String(x.ren).replace('.',',')+' m/kg':''}</small></span><span class="vp num"><b>${fmt(x.p)}</b><small>${ulab(x.unit)}${x.ren?' · metro ≈ '+fmt(xm(x).t)+' con impuestos':''}${bsOf(x)?'<br>'+fbs(bsOf(x))+ulab(x.unit)+(CLI?'':' IVA incl.'):''}</small></span></button>`).join('')}</div>`:
+  const vars=it.v.length>1?`<div class="vars">${it.v.map((x,i)=>`<button class="var" data-v="${i}" aria-pressed="${i===vi}"><span class="vl">${x.label}<small>${x.comp||''}${x.ren?' · '+String(x.ren).replace('.',',')+' m/kg':''}</small></span><span class="vp num"><b>${fmt(x.p)}</b><small>${ulab(x.unit)}${x.ren?' · metro ≈ '+fmt(xm(x).b)+' (referencia)':''}${bsOf(x)?'<br>'+fbs(bsOf(x))+ulab(x.unit)+(CLI?'':' IVA incl.'):''}</small></span></button>`).join('')}</div>`:
    `<div class="var" aria-pressed="true" style="cursor:default"><span class="vl">Precio base</span><span class="vp num"><b>${fmt(v.p)}</b><small>${ulab(v.unit)}${v.ren?'':''}</small></span></div>`;
   const row=(t,d)=>d&&!/^no aplica$/i.test(d)?`<dt>${t}</dt><dd>${d}</dd>`:'';
   $('#sheet').innerHTML=`<button class="x" id="x" aria-label="Cerrar">×</button><div class="sh-in">
@@ -280,7 +280,7 @@ function drawSheet(){
    <div class="det"><div><span class="cat">${FAM[it.fam]}${v.cat?' · '+v.cat:''}</span><h2>${it.name}</h2></div>
    ${vars}
    <dl class="ficha">${row('Referencia',v.ref)}${row('Composición',v.comp)}${row('Densidad',v.den)}${row('Ancho',v.anc)}${v.ren?row('Rendimiento','1 kg rinde ≈ '+nm(v.ren)+' metros'):''}${row('Usos',v.rec)}</dl>
-   ${v.ren?`<div class="kgx"><b>¿Cuánto sale por metro?</b> Esta tela se vende por kilo. Cada kilo rinde aproximadamente <b>${nm(v.ren)} metros</b>${v.anc?` de tela de ${(a=>/m/i.test(a)?a.toLowerCase():a+' m')(v.anc.replace(/\s*\(.*\)/,'').trim())} de ancho`:''}, así que el metro sale aproximadamente en:<ul><li><b>${fmt(xm(v).b)}</b> sin impuestos</li><li><b>${fmt(xm(v).t)}</b> con impuestos, pagando en $</li>${xm(v).bs?`<li><b>${fbs(xm(v).bs)}</b> con impuestos, pagando en Bs</li>`:''}</ul>Para saber cuántos kilos necesitas, divide los metros entre ${nm(v.ren)}. Ejemplo: 10 metros ≈ ${nm(Math.ceil(10/v.ren*10)/10)} kg.</div>`:''}${desg(usdT(v,1),bsT(v,1),'Precio '+ulab(v.unit))+((v.pbs||v.b)?'':'<p class="note">Esta tela no tiene precio para pago en Bs en la lista.</p>')}
+   ${v.ren?`<div class="kgx"><b>¿Cuánto rinde por metro?</b> Esta tela se vende <b>únicamente por kilo</b>. Cada kilo rinde aproximadamente <b>${nm(v.ren)} metros</b>${v.anc?` de tela de ${(a=>/m/i.test(a)?a.toLowerCase():a+' m')(v.anc.replace(/\s*\(.*\)/,'').trim())} de ancho`:''}. Como referencia, eso equivale a unos <b>${fmt(xm(v).b)}</b> por metro (precio base, antes de impuestos); no se vende por metro. Para saber cuántos kilos necesitas, divide los metros entre ${nm(v.ren)}. Ejemplo: 10 metros ≈ ${nm(Math.ceil(10/v.ren*10)/10)} kg.</div>`:''}${desg(usdT(v,1),bsT(v,1),'Precio '+ulab(v.unit))+((v.pbs||v.b)?'':'<p class="note">Esta tela no tiene precio para pago en Bs en la lista.</p>')}
    <div class="quote"><label for="qty">Cantidad (${uword(v.unit)})</label>
      <div class="qty"><button data-q="-1" aria-label="Menos">−</button><input id="qty" inputmode="decimal" value="${qtyv}"><button data-q="1" aria-label="Más">+</button></div>
      <span class="sub">Subtotal <b class="num" id="subt">${subTxt(v,qtyv)}</b></span>
