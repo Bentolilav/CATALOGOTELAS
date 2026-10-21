@@ -51,9 +51,9 @@ h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
 .hero h1 em{font-style:normal;color:var(--acc)}
 .hero p{color:#D5DFEA;font-size:17px;max-width:52ch;margin:0 0 28px}
 .hero .acts{display:flex;flex-wrap:wrap;gap:12px}
-.mosaic{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:12px;aspect-ratio:1.1/1;max-width:100%}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;aspect-ratio:1/1;max-width:100%}
 .mosaic img{width:100%;height:100%;object-fit:cover;border-radius:14px}
-.mosaic img:first-child{grid-row:span 2}
+.mosaic img:nth-child(1){border-top-left-radius:44px}.mosaic img:nth-child(4){border-bottom-right-radius:44px}
 
 /* stats */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;margin-top:-36px;position:relative}
@@ -147,9 +147,10 @@ footer b{color:#fff;font-family:var(--f-display)}
         </div>
       </div>
       <div class="mosaic">
-        <img src="f/1jbpTEL-OP.jpg" alt="Muestrarios de telas IDEATEX colgados con su etiqueta de referencia">
-        <img src="t/10xxeGlLFV.jpg" alt="Abanico de telas en tonos neutros">
-        <img src="t/1kGiu49Mey.jpg" alt="Gama de colores de una tela de punto">
+        <img src="cover/c1.jpg" alt="Tela beige perforada">
+        <img src="cover/c2.jpg" alt="Rib color coral">
+        <img src="cover/c3.jpg" alt="Denim azul">
+        <img src="cover/c4.jpg" alt="Tela jaspeada gris azulado">
       </div>
     </div>
   </div>

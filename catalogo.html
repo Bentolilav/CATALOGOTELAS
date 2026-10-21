@@ -433,9 +433,6 @@ $('#scrim').addEventListener('click',close);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#sheet').hidden)close()});
 if(CLI)$('#tlab').textContent='Mi pedido';
 drawTasa();renderFams();render();drawTray();
-(function(){const pick=['aerotex','camiser-a-rayas-y-cuadros','lino','plush','alo-brown','popelina-element'];const ks=[];
-for(const id of pick){const it=ITEMS.find(i=>i.id===id&&i.img.length);if(it)ks.push(it.img[0]);if(ks.length===4)break}
-for(const it of ITEMS){if(ks.length>=4)break;if(it.img.length&&!ks.includes(it.img[0]))ks.push(it.img[0])}
-$('#mos').innerHTML=ks.map(k=>`<img src="t/${k}.jpg" alt="" loading="lazy">`).join('')})();
+$('#mos').innerHTML=['c1','c2','c3','c4'].map(k=>`<img src="cover/${k}.jpg" alt="" loading="lazy">`).join('');
 </script>
 </body></html>
