@@ -114,6 +114,7 @@ dl.ficha dd{margin:0;min-width:0}
 .qty input{width:70px;border:0;background:transparent;text-align:center;padding:8px 0;outline:0}
 .qty button{border:0;background:transparent;width:34px;height:36px;cursor:pointer;font-size:18px}
 .sub{font-size:13px;color:var(--muted);flex:1;min-width:120px}
+.sub .minq{display:block;margin-top:4px;font-size:12px;color:var(--sec);font-weight:600}
 .sub b{color:var(--fg);font-family:var(--f-display)}
 .acts{display:flex;flex-wrap:wrap;gap:8px}
 .btn{border:1px solid var(--dom);background:var(--dom);color:#fff;border-radius:8px;padding:10px 14px;font:600 13.5px var(--f-display);cursor:pointer;display:inline-flex;gap:8px;align-items:center;text-decoration:none}
@@ -273,7 +274,7 @@ const ulab=u=>u==='kg'?'/kg':u==='m'?'/m':'/combo';
 const uword=u=>u==='kg'?'kg':u==='m'?'m':'combos';
 const norm=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 let fam='all', q='', cart=[];
-try{cart=JSON.parse(localStorage.getItem('idx-cot2')||'[]')}catch(e){cart=[]}
+try{cart=JSON.parse(localStorage.getItem('idx-cot2')||'[]');cart.forEach(l=>{if(l.q<3)l.q=3})}catch(e){cart=[]}
 function save(){try{localStorage.setItem('idx-cot2',JSON.stringify(cart))}catch(e){}}
 function toast(t){const el=$('#toast');el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,1800)}
 function hay(it){return norm([it.name,FAM[it.fam],...it.v.flatMap(v=>[v.label,v.ref,v.cat,v.comp,v.rec])].join(' '))}
@@ -303,7 +304,8 @@ function render(){
 }
 
 /* ficha */
-let cur=null, vi=0, gi=0, qtyv=1;
+const MINQ=3; /* compra mínima: 3 kg o 3 metros */
+let cur=null, vi=0, gi=0, qtyv=MINQ;
 function vtext(it,v){
   const L=[`*${it.name}${v.label?' · '+v.label:''}* — IDEATEX`];
   if(v.ref)L.push(`Referencia: ${v.ref}`);
@@ -318,7 +320,7 @@ function vtext(it,v){
   L.push(CLI?'Precios sujetos a cambio sin previo aviso.':'Precio base en $. Sujeto a cambio sin previo aviso.');
   return L.join('\n');
 }
-function open(id){cur=ITEMS.find(i=>i.id===id);vi=0;gi=0;qtyv=1;drawSheet();$('#scrim').hidden=false;$('#sheet').hidden=false;document.body.style.overflow='hidden'}
+function open(id){cur=ITEMS.find(i=>i.id===id);vi=0;gi=0;qtyv=MINQ;drawSheet();$('#scrim').hidden=false;$('#sheet').hidden=false;document.body.style.overflow='hidden'}
 function close(){$('#scrim').hidden=true;$('#sheet').hidden=true;document.body.style.overflow='';cur=null}
 function drawSheet(){
   const it=cur, v=it.v[vi];
@@ -334,7 +336,7 @@ function drawSheet(){
    <div class="det">${desg(usdT(v,1),bsT(v,1),'Precio '+ulab(v.unit))}
    <div class="quote"><label for="qty">Cantidad (${uword(v.unit)})</label>
      <div class="qty"><button data-q="-1" aria-label="Menos">−</button><input id="qty" inputmode="decimal" value="${qtyv}"><button data-q="1" aria-label="Más">+</button></div>
-     <span class="sub">Subtotal <b class="num" id="subt">${subTxt(v,qtyv)}</b></span>
+     <span class="sub">Subtotal <b class="num" id="subt">${subTxt(v,qtyv)}</b><small class="minq">Compra mínima: 3 ${v.unit==='m'?'metros':'kg'}</small></span>
      <button class="btn" id="add">${CLI?'Agregar a mi pedido':'Agregar a cotización'}</button></div>
    ${CLI?`<div class="acts">${waBtns('Hola, quiero información de esta tela:\n'+vtext(it,v),'Consultar')}</div>`:`<div class="acts"><button class="btn ghost" id="cp">Copiar ficha para WhatsApp</button><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(vtext(it,v))}">Enviar por WhatsApp</a></div>`}
    ${it.name.startsWith('Piqué')&&it.v.some(x=>/^Combo/.test(x.label))?'<p class="note">El combo es el juego de cuello y puños al tono de la tela.</p>':''}
@@ -402,8 +404,8 @@ document.addEventListener('click',e=>{
     if(tdoc)tdoc.set({v:n,f}).then(()=>toast('Tasa guardada para todo el equipo'),()=>toast('Tasa aplicada solo en este equipo'));else toast('Tasa aplicada en este equipo');return}
   if(t.dataset.g){gi=+t.dataset.g;drawSheet();return}
   if(t.dataset.v){vi=+t.dataset.v;drawSheet();return}
-  if(t.dataset.q){const v=cur.v[vi];qtyv=Math.max(0,Math.round((parseFloat(String($('#qty').value).replace(',','.'))||0)+ +t.dataset.q));$('#qty').value=qtyv;$('#subt').textContent=subTxt(v,qtyv);return}
-  if(t.id==='add'){const v=cur.v[vi];if(!(qtyv>0))return toast('Indica una cantidad');cart.push({n:cur.name+(v.label?' · '+v.label:''),p:v.p,piva:v.piva||null,pbs:v.pbs||v.b||null,u:v.unit,q:qtyv});save();drawTray();toast(CLI?'Agregada a tu pedido':'Agregada a la cotización');close();return}
+  if(t.dataset.q){const v=cur.v[vi];qtyv=Math.max(MINQ,Math.round((parseFloat(String($('#qty').value).replace(',','.'))||0)+ +t.dataset.q));$('#qty').value=qtyv;$('#subt').textContent=subTxt(v,qtyv);return}
+  if(t.id==='add'){const v=cur.v[vi];if(!(qtyv>=MINQ)){qtyv=MINQ;$('#qty').value=MINQ;$('#subt').textContent=subTxt(v,MINQ);return toast('La compra mínima es de 3 '+(v.unit==='m'?'metros':'kg'))}cart.push({n:cur.name+(v.label?' · '+v.label:''),p:v.p,piva:v.piva||null,pbs:v.pbs||v.b||null,u:v.unit,q:qtyv});save();drawTray();toast(CLI?'Agregada a tu pedido':'Agregada a la cotización');close();return}
   if(t.id==='cp')return copy(vtext(cur,cur.v[vi]));
   if(t.id==='tray')return openQuote();
   if(t.dataset.rm){cart.splice(+t.dataset.rm,1);save();drawTray();openQuote();return}
@@ -413,6 +415,7 @@ document.addEventListener('click',e=>{
 document.addEventListener('input',e=>{
   if(e.target.id==='q'){q=e.target.value;render()}
   if(e.target.id==='qty'&&cur){qtyv=parseFloat(e.target.value.replace(',','.'))||0;$('#subt').textContent=subTxt(cur.v[vi],qtyv)}
+document.addEventListener('change',e=>{if(e.target.id==='qty'&&cur&&qtyv<MINQ){qtyv=MINQ;e.target.value=MINQ;$('#subt').textContent=subTxt(cur.v[vi],MINQ);toast('La compra mínima es de 3 '+(cur.v[vi].unit==='m'?'metros':'kg'))}});
 });
 $('#scrim').addEventListener('click',close);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#sheet').hidden)close()});
