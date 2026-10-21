@@ -1,310 +1,244 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Telas IDEATEX</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>IDEATEX · Telas de alta calidad</title>
+<meta name="description" content="IDEATEX: más de 35 años fabricando, importando y distribuyendo telas de alta calidad en Venezuela. Calidad que se teje con experiencia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
 <style>
-/* Layout: navy brand band + sticky family rail, swatch-card grid, bottom sheet for la ficha, floating cotización tray */
+/* Layout: banda azul de marca con logo arriba a la izquierda, hero partido texto/fotos de tela, secciones apiladas sobre fondo claro, cierre de bienvenida en azul. */
 :root{
   --dom:#2C3E50; --sec:#4A6584; --acc:#829FBE;
   --bg:#F3F6F9; --surface:#FFFFFF; --fg:#1E2B38; --muted:#5D6E80; --line:#DCE3EB; --chip:#E7EDF4;
-  --band:#2C3E50; --bandfg:#FFFFFF; --price:#2C3E50; --ok:#2E7D5B;
   --f-display:"Montserrat","Segoe UI",Arial,sans-serif; --f-body:"Inter","Segoe UI",Arial,sans-serif;
-  --r:10px;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#141C25; --surface:#1C2733; --fg:#E6ECF2; --muted:#9AAABB; --line:#2E3C4B; --chip:#253342;
-  --band:#1A2633; --bandfg:#FFFFFF; --price:#B9CCE0; --ok:#62C29A; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#141C25; --surface:#1C2733; --fg:#E6ECF2; --muted:#9AAABB; --line:#2E3C4B; --chip:#253342;
-  --band:#1A2633; --bandfg:#FFFFFF; --price:#B9CCE0; --ok:#62C29A; color-scheme:dark}
+@media (prefers-color-scheme: dark){:root{--bg:#141C25;--surface:#1C2733;--fg:#E6ECF2;--muted:#9AAABB;--line:#2E3C4B;--chip:#253342;color-scheme:dark}}
 *{box-sizing:border-box}
-[hidden]{display:none!important}
-body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--f-body);margin:0}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--band)}
-.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-button,input{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
-.num{font-variant-numeric:tabular-nums}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--f-body);padding-top:env(safe-area-inset-top,0px)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+.eyebrow{font:700 12px/1.3 var(--f-display);letter-spacing:.16em;text-transform:uppercase;color:var(--sec)}
+@media (prefers-color-scheme: dark){.eyebrow{color:var(--acc)}}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 15px var(--f-display);text-decoration:none;border-radius:999px;padding:14px 22px;border:2px solid transparent;cursor:pointer}
+.btn.pri{background:#fff;color:var(--dom)}
+.btn.out{border-color:rgba(255,255,255,.55);color:#fff}
+.btn.wa{background:#1F8F5A;color:#fff}
+.btn.navy{background:var(--dom);color:#fff}
 
-header.band{background:var(--band);color:var(--bandfg)}
-header .wrap{padding-block:22px 18px;display:flex;flex-wrap:wrap;gap:14px 24px;align-items:flex-end;justify-content:space-between}
-.brand img{height:34px;width:auto;display:block}
-.brand p{margin:10px 0 0;font:600 12px/1.3 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
-.brand h1{margin:4px 0 0;font:700 clamp(22px,4vw,30px)/1.15 var(--f-display);text-wrap:balance}
-.hmeta{font-size:12.5px;color:#C9D6E4;max-width:340px}
-.hmeta b{color:#fff;font-weight:600}
+/* top */
+.top{position:sticky;top:0;z-index:20;background:var(--dom);color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.top img{height:26px;width:auto}
+.top nav{display:flex;gap:22px;align-items:center;font:600 14px var(--f-display)}
+.top nav a{text-decoration:none;color:#D5DFEA}
+.top nav a:hover{color:#fff}
+.top nav .cta{background:#fff;color:var(--dom);padding:8px 16px;border-radius:999px}
+@media (max-width:760px){.top nav a:not(.cta){display:none}}
 
-.rail{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
-.rail .wrap{padding-block:12px;display:flex;flex-direction:column;gap:10px}
-.search{display:flex;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:0 14px}
-.search svg{flex:none;color:var(--muted)}
-.search input{border:0;background:transparent;outline:0;padding:11px 0;width:100%;min-width:0}
-.fams{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -4px;padding:0 4px}
-.fams::-webkit-scrollbar{display:none}
-.fam{flex:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font:600 13px var(--f-display);cursor:pointer;white-space:nowrap}
-.fam span{color:var(--muted);font-weight:500;margin-left:4px}
-.fam[aria-pressed="true"]{background:var(--dom);border-color:var(--dom);color:#fff}
-.fam[aria-pressed="true"] span{color:#C9D6E4}
-:root[data-theme="dark"] .fam[aria-pressed="true"]{background:var(--sec);border-color:var(--sec)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fam[aria-pressed="true"]{background:var(--sec);border-color:var(--sec)}}
+/* hero */
+.hero{background:var(--dom);color:#fff;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-block:56px 72px}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:36px 48px}}
+.hero .eyebrow{color:var(--acc)}
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.04;font-weight:800;margin:14px 0 18px;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero p{color:#D5DFEA;font-size:17px;max-width:52ch;margin:0 0 28px}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px}
+.mosaic{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:12px;aspect-ratio:1.1/1;max-width:100%}
+.mosaic img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+.mosaic img:first-child{grid-row:span 2}
 
-main .wrap{padding-block:18px 120px;display:flex;flex-direction:column;gap:30px}
-section h2{margin:0 0 4px;font:700 19px/1.25 var(--f-display);display:flex;gap:10px;align-items:baseline}
-section h2 small{font:500 13px var(--f-body);color:var(--muted)}
-section .lede{margin:0 0 14px;color:var(--muted);font-size:13.5px;max-width:65ch}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
-@media (max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:10px}}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;text-align:left;padding:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
-.card:hover{transform:translateY(-2px);box-shadow:0 8px 22px -12px rgba(44,62,80,.45)}
-.ph{aspect-ratio:1/1;max-width:100%;background:var(--chip);position:relative;overflow:hidden}
-.ph img{width:100%;height:100%;object-fit:cover;display:block}
-.ph .cnt{position:absolute;right:8px;bottom:8px;background:rgba(20,28,37,.72);color:#fff;font:600 11px var(--f-display);padding:3px 8px;border-radius:999px}
-.ph .noimg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:12px;padding:12px;background:repeating-linear-gradient(135deg,var(--chip) 0 10px,var(--surface) 10px 20px)}
-.cb{padding:11px 12px 13px;display:flex;flex-direction:column;gap:4px;flex:1}
-.cat{font:600 10.5px var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:var(--sec)}
-:root[data-theme="dark"] .cat{color:var(--acc)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cat{color:var(--acc)}}
-.cb h3{margin:0;font:700 15px/1.25 var(--f-display)}
-.pr{margin-top:auto;padding-top:6px;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px}
-.pr b{font:800 19px var(--f-display);color:var(--price)}
-.pr b small{font:600 12px var(--f-body);color:var(--muted)}
-.pr .eq{font-size:12px;color:var(--muted)}
-.empty{padding:40px 0;text-align:center;color:var(--muted)}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;margin-top:-36px;position:relative}
+.stats div{padding:22px 20px;border-left:1px solid var(--line)}
+.stats div:first-child{border-left:0}
+.stats b{display:block;font:800 30px/1.1 var(--f-display);color:var(--dom)}
+@media (prefers-color-scheme: dark){.stats b{color:var(--acc)}}
+.stats span{font-size:13.5px;color:var(--muted)}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(3){border-left:0}.stats div:nth-child(n+3){border-top:1px solid var(--line)}}
 
-/* sheet */
-.scrim{position:fixed;inset:0;background:rgba(10,16,24,.55);z-index:40}
-.sheet{position:fixed;z-index:41;left:0;right:0;bottom:0;max-height:92vh;overflow:auto;background:var(--surface);border-radius:16px 16px 0 0;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));box-shadow:0 -10px 40px rgba(0,0,0,.25)}
-@media (min-width:860px){.sheet{left:50%;right:auto;bottom:auto;top:50%;transform:translate(-50%,-50%);width:min(940px,94vw);max-height:90vh;border-radius:16px;padding-bottom:20px}}
-.sh-in{padding:16px max(18px,env(safe-area-inset-right,0px)) 0 max(18px,env(safe-area-inset-left,0px));display:grid;gap:20px}
-@media (min-width:860px){.sh-in{grid-template-columns:1.05fr 1fr;padding:22px 24px 0}}
-.x{position:sticky;top:0;float:right;margin:10px 10px 0 0;z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:20px;line-height:1}
-.gal{display:flex;flex-direction:column;gap:8px;min-width:0}
-.gal .big{aspect-ratio:1/1;max-width:100%;border-radius:var(--r);overflow:hidden;background:var(--chip)}
-.gal .big img{width:100%;height:100%;object-fit:contain;background:#fff}
-.thumbs{display:flex;gap:8px}
-.thumbs button{width:64px;height:64px;padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;background:var(--chip)}
-.thumbs button[aria-current="true"]{border-color:var(--sec)}
-.thumbs img{width:100%;height:100%;object-fit:cover}
-.det{min-width:0;display:flex;flex-direction:column;gap:14px}
-.det h2{margin:0;font:800 24px/1.15 var(--f-display);text-wrap:balance}
-.vars{display:flex;flex-direction:column;gap:8px}
-.var{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;cursor:pointer;background:var(--surface)}
-.var[aria-pressed="true"]{border-color:var(--sec);box-shadow:inset 0 0 0 1px var(--sec)}
-.var .vl{flex:1;min-width:0;font-weight:600;font-size:14px}
-.var .vl small{display:block;font-weight:400;color:var(--muted);font-size:12px}
-.var .vp{text-align:right}
-.var .vp b{font:800 18px var(--f-display);color:var(--price)}
-.var .vp small{display:block;font-size:11.5px;color:var(--muted)}
-dl.ficha{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:13.5px;border-top:1px solid var(--line);padding-top:12px}
-dl.ficha dt{color:var(--muted);font:600 11px var(--f-display);letter-spacing:.08em;text-transform:uppercase;padding-top:3px}
-dl.ficha dd{margin:0;min-width:0}
-.quote{background:var(--chip);border-radius:var(--r);padding:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.quote label{font:600 12px var(--f-display);color:var(--muted)}
-.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
-.qty input{width:70px;border:0;background:transparent;text-align:center;padding:8px 0;outline:0}
-.qty button{border:0;background:transparent;width:34px;height:36px;cursor:pointer;font-size:18px}
-.sub{font-size:13px;color:var(--muted);flex:1;min-width:120px}
-.sub b{color:var(--fg);font-family:var(--f-display)}
-.acts{display:flex;flex-wrap:wrap;gap:8px}
-.btn{border:1px solid var(--dom);background:var(--dom);color:#fff;border-radius:8px;padding:10px 14px;font:600 13.5px var(--f-display);cursor:pointer;display:inline-flex;gap:8px;align-items:center;text-decoration:none}
-.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
-.btn.wa{background:#1F8F5A;border-color:#1F8F5A}
-.note{font-size:12px;color:var(--muted);border-left:3px solid var(--acc);padding-left:10px}
+section{padding-block:72px}
+@media (max-width:760px){section{padding-block:52px}}
+.split{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:start}
+@media (max-width:860px){.split{grid-template-columns:1fr;gap:20px}}
+.split h2{font-size:clamp(26px,3.6vw,38px);line-height:1.15;margin-top:10px}
+.prose p{margin:0 0 16px;max-width:64ch}
+.prose p:first-child{font-size:18px;color:var(--fg)}
 
-/* tray */
-.tray{position:fixed;z-index:35;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));background:var(--dom);color:#fff;border:0;border-radius:999px;padding:12px 20px;font:700 14px var(--f-display);display:flex;gap:12px;align-items:center;cursor:pointer;box-shadow:0 10px 30px -8px rgba(0,0,0,.45);max-width:calc(100% - 32px)}
-.tray .badge{background:#fff;color:var(--dom);border-radius:999px;min-width:24px;height:24px;display:grid;place-items:center;font-size:12px;padding:0 6px}
-.ql{display:flex;flex-direction:column;gap:8px}
-.qrow{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:8px;font-size:14px}
-.qrow small{display:block;color:var(--muted);font-size:12px}
-.qrow .rm{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:18px}
-.tot{display:flex;justify-content:space-between;font:800 18px var(--f-display);padding-top:4px}
-.client{display:flex;flex-direction:column;gap:4px}
-.client input{border:1px solid var(--line);border-radius:8px;padding:9px 10px;background:var(--surface)}
-.toast{position:fixed;z-index:60;left:50%;transform:translateX(-50%);top:calc(16px + env(safe-area-inset-top,0px));background:var(--ok);color:#fff;padding:9px 16px;border-radius:999px;font:600 13px var(--f-display)}
-textarea.fallback{width:100%;min-height:140px;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--surface);font-size:12.5px}
-#tasa{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12.5px;color:var(--muted)}
-#tasa b{color:var(--fg);font-family:var(--f-display)}
-#tasa input{width:110px;border:1px solid var(--line);border-radius:8px;padding:6px 8px;background:var(--surface)}
-#tasa .lnk{border:0;background:transparent;color:var(--sec);font:600 12.5px var(--f-display);cursor:pointer;padding:4px 2px;text-decoration:underline}
-.bs{font-size:12px;color:var(--muted);width:100%}
-.pr .bs b{color:var(--fg);font:600 12.5px var(--f-body)}
-.desg{width:100%;border-collapse:collapse;font-size:13px;background:var(--chip);border-radius:var(--r);overflow:hidden}
-.desg th,.desg td{padding:7px 10px;text-align:right;font-variant-numeric:tabular-nums}
-.desg th{font:600 11px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.desg th:first-child,.desg td:first-child{text-align:left;color:var(--muted)}
-.desg tr.t td{font:800 14px var(--f-display);color:var(--fg);border-top:1px solid var(--line)}
-.mt{font-size:12px;color:var(--muted);width:100%}
-.pr .mt b{color:var(--fg);font:600 12.5px var(--f-body)}
-.kgx{background:var(--chip);border-radius:var(--r);padding:12px 14px;font-size:13.5px;line-height:1.5}
-.kgx b{font-family:var(--f-display)}
-.kgx ul{margin:6px 0 0;padding-left:18px}
-.ref{font:500 11.5px var(--f-body);color:var(--muted);letter-spacing:.02em}
-footer{border-top:1px solid var(--line);color:var(--muted);font-size:12px}
-footer .wrap{padding-block:18px 100px;display:flex;flex-wrap:wrap;gap:6px 20px;justify-content:space-between}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* filosofia */
+.std{background:var(--surface);border-block:1px solid var(--line)}
+.motto{font:800 clamp(30px,5.4vw,56px)/1.08 var(--f-display);color:var(--dom);margin:12px 0 10px;letter-spacing:-.01em}
+@media (prefers-color-scheme: dark){.motto{color:#fff}}
+.motto span{color:var(--acc)}
+.std .lead{color:var(--muted);max-width:60ch;margin:0 0 36px}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:40px}
+@media (max-width:760px){.mv{grid-template-columns:1fr}}
+.mv article{background:var(--bg);border-radius:14px;padding:24px 26px}
+.mv h3{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--sec);margin-bottom:8px}
+@media (prefers-color-scheme: dark){.mv h3{color:var(--acc)}}
+.mv p{margin:0;font-size:17px}
+.vals{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:2px solid var(--dom)}
+@media (prefers-color-scheme: dark){.vals{border-top-color:var(--acc)}}
+.vals div{padding:20px 18px 6px 0}
+.vals h4{margin:0 0 6px;font:700 17px var(--f-display)}
+.vals p{margin:0;font-size:14.5px;color:var(--muted)}
+@media (max-width:900px){.vals{grid-template-columns:1fr 1fr;gap:0 24px}}
+@media (max-width:520px){.vals{grid-template-columns:1fr}}
+
+/* unidades */
+.units{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+@media (max-width:860px){.units{grid-template-columns:1fr}}
+.unit{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px}
+.unit .n{font:800 13px var(--f-display);color:var(--acc);letter-spacing:.1em}
+.unit h3{font-size:20px;margin:8px 0 10px}
+.unit p{margin:0 0 12px;color:var(--muted);font-size:15px}
+.unit .tag{font-size:13px;color:var(--fg);background:var(--chip);border-radius:8px;padding:8px 10px}
+.units-head h2{font-size:clamp(26px,3.6vw,38px);margin-top:10px}
+.units-head p{color:var(--muted);max-width:60ch;margin:10px 0 0}
+
+/* bienvenida */
+.welcome{background:var(--dom);color:#fff}
+.welcome .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+@media (max-width:860px){.welcome .wrap{grid-template-columns:1fr}}
+.welcome .eyebrow{color:var(--acc)}
+.welcome h2{font-size:clamp(28px,4.4vw,44px);line-height:1.1;margin:12px 0 16px}
+.welcome p{color:#D5DFEA;max-width:58ch;margin:0 0 14px}
+.welcome .sign{font:600 15px var(--f-display);color:#fff;margin-top:20px}
+.welcome .acts{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.welcome .acts small{color:#AFC0D2;font-size:13px}
+
+footer{background:#22303F;color:#AFC0D2;font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;padding-block:22px calc(22px + env(safe-area-inset-bottom,0px))}
+footer b{color:#fff;font-family:var(--f-display)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+</head>
+<body>
 
-<header class="band">
+<header class="top">
   <div class="wrap">
-    <div class="brand">
-      <img src="logo-w.png" alt="IDEATEX" width="187" height="34">
-      <p>Catálogo de telas</p>
-      <h1>Elige tu tela y calcula cuánto te sale</h1>
-    </div>
-    <div class="hmeta">Precios en $ y en Bs del día, con su base imponible e impuestos. Telas de punto y deportivas se venden <b>por kilo</b>; las planas e impermeables, <b>por metro</b>. Para hacer tu pedido, escríbele a una vendedora por WhatsApp.</div>
+    <a href="#inicio" aria-label="IDEATEX, inicio"><img src="logo-w.png" alt="IDEATEX" width="143" height="26"></a>
+    <nav aria-label="Secciones">
+      <a href="#quienes">Quiénes somos</a>
+      <a href="#filosofia">Filosofía</a>
+      <a href="#servicios">Qué hacemos</a>
+      <a class="cta" href="catalogo.html">Ver catálogo</a>
+    </nav>
   </div>
 </header>
 
-<div class="rail">
-  <div class="wrap">
-    <label class="search" for="q">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" type="search" placeholder="Buscar tela, uso o composición (ej. leggins, algodón, impermeable)" autocomplete="off">
-    </label>
-    <div id="tasa" hidden></div>
-    <div class="fams" id="fams" role="toolbar" aria-label="Familias de tela"></div>
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Bienvenido a IDEATEX</span>
+        <h1>Calidad que se teje con <em>experiencia</em></h1>
+        <p>Desde hace más de 35 años fabricamos, importamos y distribuimos telas de alta calidad en Venezuela. Tres generaciones de una misma familia, al servicio de quienes construyen productos y marcas que perduran.</p>
+        <div class="acts">
+          <a class="btn pri" href="catalogo.html">Ver catálogo de telas</a>
+          <a class="btn out" id="wa" target="_blank" rel="noopener" href="https://wa.me/">Escríbanos por WhatsApp</a>
+        </div>
+      </div>
+      <div class="mosaic">
+        <img src="f/1jbpTEL-OP.jpg" alt="Muestrarios de telas IDEATEX colgados con su etiqueta de referencia">
+        <img src="t/10xxeGlLFV.jpg" alt="Abanico de telas en tonos neutros">
+        <img src="t/1kGiu49Mey.jpg" alt="Gama de colores de una tela de punto">
+      </div>
+    </div>
   </div>
-</div>
 
-<main><div class="wrap" id="list"></div></main>
-<footer><div class="wrap"><span>Ideatex — Calidad que se teje con experiencia</span><span>La Yaguara, Caracas · Precios sujetos a cambio sin previo aviso</span></div></footer>
+  <div class="wrap">
+    <div class="stats" role="list">
+      <div role="listitem"><b>+35</b><span>años en la industria textil</span></div>
+      <div role="listitem"><b>3</b><span>generaciones de una misma familia</span></div>
+      <div role="listitem"><b>4</b><span>orígenes textiles: Holanda, Perú, Pakistán y Brasil</span></div>
+      <div role="listitem"><b>3</b><span>unidades de negocio bajo un mismo estándar</span></div>
+    </div>
+  </div>
 
-<button class="tray" id="tray" hidden><span class="badge" id="tcount">0</span><span id="tlab">Cotización</span><span class="num" id="ttot"></span></button>
-<div class="scrim" id="scrim" hidden></div>
-<div class="sheet" id="sheet" role="dialog" aria-modal="true" hidden></div>
-<div class="toast" id="toast" hidden></div>
+  <section id="quienes">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow">Quiénes somos</span>
+        <h2>Una empresa familiar con estructura profesional</h2>
+      </div>
+      <div class="prose">
+        <p>IDEATEX nació en Caracas hace más de 35 años como una empresa familiar. Hoy es una referencia textil que combina la experiencia de tres generaciones con una capacidad de renovación constante.</p>
+        <p>Fabricamos, importamos y distribuimos telas de alta calidad, y desarrollamos soluciones textiles integrales para los sectores que exigen el más alto nivel. Seleccionamos textiles de origen holandés, peruano, pakistaní y brasilero, y acompañamos a cada cliente con asesoría técnica, desde la elección de la fibra hasta la confección.</p>
+        <p>Más que una empresa, somos una familia construida sobre el compromiso, la disciplina y la pasión por el oficio.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="filosofia" class="std">
+    <div class="wrap">
+      <span class="eyebrow">Filosofía organizacional</span>
+      <p class="motto">Hacerlo bien, <span>o no hacerlo.</span></p>
+      <p class="lead">Cada decisión que tomamos, desde la fibra que elegimos hasta la forma en que atendemos a nuestros clientes, responde a este mismo estándar.</p>
+      <div class="mv">
+        <article><h3>Misión</h3><p>Proveer telas de la más alta calidad, con innovación constante y un servicio cercano, para que nuestros clientes construyan productos y marcas que perduren.</p></article>
+        <article><h3>Visión</h3><p>Ser la empresa textil líder de referencia en Venezuela, reconocida por la excelencia de sus productos, la solidez de sus relaciones comerciales y su capacidad de evolucionar sin perder su esencia.</p></article>
+      </div>
+      <span class="eyebrow">Nuestros valores</span>
+      <div class="vals">
+        <div><h4>Compromiso</h4><p>Con nuestros clientes, nuestro equipo y cada tela que sale de nuestras manos.</p></div>
+        <div><h4>Disciplina</h4><p>La base de una calidad que no se negocia.</p></div>
+        <div><h4>Innovación</h4><p>Buscamos constantemente mejores materiales, procesos y formas de servir.</p></div>
+        <div><h4>Calidad</h4><p>Nuestro estándar no cambia, sin importar el volumen o la escala.</p></div>
+        <div><h4>Legado</h4><p>Construimos hoy pensando en las próximas generaciones, dentro y fuera de IDEATEX.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="wrap">
+      <div class="units-head">
+        <span class="eyebrow">Qué hacemos</span>
+        <h2>Tres unidades de negocio, un mismo estándar</h2>
+        <p>IDEATEX opera como una marca paraguas con la misma rigurosidad en cada servicio.</p>
+      </div>
+      <div class="units">
+        <article class="unit"><span class="n">01</span><h3>Telas importadas</h3><p>Venta, atención personalizada y asesoría técnica especializada en telas de muy alta gama.</p><div class="tag">Origen holandés, peruano, pakistaní y brasilero</div></article>
+        <article class="unit"><span class="n">02</span><h3>Servicio técnico de producción</h3><p>Desarrollo integral del proyecto: patronaje, materialización, producción, asesoría logística y acompañamiento durante toda la confección.</p><div class="tag">Maquila corporativa, marcas emergentes y grandes producciones</div></article>
+        <article class="unit"><span class="n">03</span><h3>Prendas listas</h3><p>Distribución de productos confeccionados, terminados y listos para usar o comercializar.</p><div class="tag">Uniformes, kits textiles para el hogar y empaques de denim</div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="welcome">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Bienvenido</span>
+        <h2>Gracias por elegir IDEATEX</h2>
+        <p>Nos alegra tenerle aquí. Ya sea que esté comenzando su marca, vistiendo a su equipo o planificando una gran producción, encontrará en nosotros un aliado que conoce el oficio y cumple lo que promete.</p>
+        <p>En nuestro catálogo puede ver cada tela con sus fotos, su ficha técnica y su precio, y calcular su pedido. Nuestro equipo de ventas le atenderá personalmente para confirmar colores, disponibilidad y tiempos.</p>
+        <p class="sign">El equipo de IDEATEX</p>
+      </div>
+      <div class="acts">
+        <a class="btn pri" href="catalogo.html">Ver catálogo de telas</a>
+        <a class="btn wa" id="wa2" target="_blank" rel="noopener" href="https://wa.me/">Escríbanos por WhatsApp</a>
+        <small>Le atenderá una de nuestras asesoras de venta.</small>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>Ideatex</b> — Calidad que se teje con experiencia</span>
+    <span>La Yaguara, Caracas · Venezuela</span>
+  </div>
+</footer>
 
 <script>
-const DATA = {"fam": {"dep": "Deportivas", "conf": "Confort y algodón", "piq": "Piqué para polos", "imp": "Impermeables y cortavientos", "pla": "Camisería y drill", "esp": "Toallas y especiales"}, "items": [{"id": "aerotex", "fam": "dep", "name": "Aerotex", "v": [{"label": "", "ref": "004-20-280", "rec": "Leggins, biker, crop top, top, ropa deportiva, sweat tshirt, traje de baños", "cat": "LICRA", "comp": "78% Nylon / 22% Spandex", "den": "280 (+/- 5%)", "anc": "1,56 (+/- 2 cm)", "ren": 2.3, "unit": "kg", "p": 16.47, "piva": 19.68, "b": 23.03}], "img": ["1tFhatwBmh", "10xxeGlLFV", "1_oE53faQ_"]}, {"id": "alo-brown", "fam": "dep", "name": "Alo Brown", "v": [{"label": "", "ref": "004-20-210", "rec": "Franelas, polos básicos,ropa deportiva ligera, antitranspirante", "cat": "DRY FIT", "comp": "Poly / Spandex", "den": "210 (+/- 5%)", "anc": "1,70 (+/- 2 cm)", "ren": 2.9, "unit": "kg", "p": 9.98, "piva": 11.93, "b": 13.96}], "img": ["1pd9cjQN9t", "1S0D30Qw_q", "1dkugSKoXu", "17ZqH53UgF"]}, {"id": "cationic-green", "fam": "dep", "name": "Cationic Green", "v": [{"label": "", "ref": "004-20-180", "rec": "Franelas, polos básicos,ropa deportiva ligera, antitranspirante", "cat": "LICRA", "comp": "Poly / Spandex", "den": "180 (+/- 5%)", "anc": "1,60 (+/- 2 cm)", "ren": 3.95, "unit": "kg", "p": 9.59, "piva": 11.46, "b": 13.41}], "img": ["1h8Yrq3kIP", "1Fcie0UTPI", "1tm6J7IrF2"]}, {"id": "clima-cool", "fam": "dep", "name": "Clima Cool", "v": [{"label": "", "ref": "004-30-140", "rec": "Franelas, polos básicos,ropa deportiva ligera, antitranspirante", "cat": "DRY FIT", "comp": "100% Poliester", "den": "240 (+/- 5%)", "anc": "1,80 (+/- 2 cm)", "ren": 4.27, "unit": "kg", "p": 12.45, "piva": 14.88, "b": 17.41}], "img": ["1KEVLCkm34", "1O8tHUKZvE", "13vJVrVV0w"]}, {"id": "cloud", "fam": "dep", "name": "Cloud", "v": [{"label": "", "ref": "004-20-170", "rec": "Franelas UV, polos básicos,ropa deportiva ligera, proteccion UV 50%", "cat": "LICRA", "comp": "82% Nylon / 18% Spandex", "den": "170 (+/- 5%)", "anc": "1,7 (+/- 2 cm)", "ren": 3.0, "unit": "kg", "p": 14.41, "piva": 17.22, "b": 20.15}], "img": ["1I3BgVB_h2", "1EP85A7jEq", "1MlHUUajNf"]}, {"id": "flex-pro", "fam": "dep", "name": "Flex Pro", "v": [{"label": "Flex Pro 200 g", "ref": "004-20-FP-085", "rec": "Leggins, biker, crop top, top, ropa deportiva, sweat tshirt, traje de baños", "cat": "DRY FIT", "comp": "Nylon / Spandex", "den": "200 (+/- 5%)", "anc": "1,6 (+/- 2 cm)", "ren": 7.0, "unit": "kg", "p": 16.89, "piva": 20.18, "b": 23.62}, {"label": "Flex Pro 85 g", "ref": "004-FP-", "rec": "Franelas, polos básicos,ropa deportiva ligera, antitranspirante", "cat": "DRY FIT / ANTIBACTERIAL", "comp": "Nylon / Spandex", "den": "85 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": 7.0, "unit": "kg", "p": 16.89, "piva": 20.18, "b": 23.62}], "img": ["1qkMJuWzE7", "1oBikhniDk"]}, {"id": "geo-cool", "fam": "dep", "name": "Geo Cool", "v": [{"label": "", "ref": "004-20-085", "rec": "Franelas, polos básicos,ropa deportiva ligera, antitranspirante", "cat": "DRY FIT", "comp": "Poly / Spandex", "den": "85 (+/- 5%)", "anc": "1,60 (+/- 2 cm)", "ren": 7.0, "unit": "kg", "p": 14.99, "piva": 17.91, "b": 20.96}], "img": ["1NAJfFgAUV", "1pfGKAOfvC", "149Nl9J7PX"]}, {"id": "green-sport", "fam": "dep", "name": "Green Sport", "v": [{"label": "", "ref": "004-20-250", "rec": "Leggins, biker, crop top, top, ropa deportiva, sweat tshirt, traje de baños", "cat": "LICRA", "comp": "78% Nylon / 22% Spandex", "den": "250 (+/- 5%)", "anc": "1,56 (+/- 2 cm)", "ren": 2.65, "unit": "kg", "p": 14.07, "piva": 16.81, "b": 19.68}], "img": ["1sd74yCsCK", "1n74UWhJ-2", "1EanhnA5RA", "1Wkdx-an4f", "1Jyoo9Yjeg", "1PCIRoq-YC"]}, {"id": "neo-rib", "fam": "dep", "name": "Neo Rib", "v": [{"label": "", "ref": "004-20-N269", "rec": "Leggins, biker, crop top, top, ropa deportiva, sweat tshirt, traje de baños", "cat": "LICRA", "comp": "POLIESTER / SPANDEX", "den": "260 (+/- 5%)", "anc": "1,35 (+/- 2 cm)", "ren": 2.9, "unit": "kg", "p": 14.07, "piva": 16.81, "b": 19.68}], "img": ["18wKaEHrbz", "1vJB-xQhB9", "1ZhW1M4v_H", "1YR_1essqK", "1nbL2ZSfM4"]}, {"id": "purple-leggins", "fam": "dep", "name": "Purple Leggins", "v": [{"label": "", "ref": "004-20-260", "rec": "Leggins, biker, crop top, top, ropa deportiva, sweat tshirt, traje de baños", "cat": "LICRA", "comp": "Poly / Spandex", "den": "260 (+/- 5%)", "anc": "1,60 (+/- 2 cm)", "ren": 2.5, "unit": "kg", "p": 9.39, "piva": 11.22, "b": 13.13}], "img": ["18mQrSaA9h", "1PwPLYtrzo", "1GsYj5CrkI"]}, {"id": "urban-air", "fam": "dep", "name": "Urban Air", "v": [{"label": "", "ref": "004-20-135", "rec": "Franelas, polos básicos,ropa deportiva ligera, antitranspirante", "cat": "DRY FIT", "comp": "100% Poliester", "den": "135 (+/- 5%)", "anc": "1,73 (+/- 2 cm)", "ren": 4.0, "unit": "kg", "p": 12.45, "piva": 14.88, "b": 17.41}], "img": ["14kilrln67", "1c0mGFDN1D", "1jNXzL1AeZ"]}, {"id": "vent-x", "fam": "dep", "name": "Vent X", "v": [{"label": "", "ref": "003-2235", "rec": "Franelas, polos básicos,ropa deportiva ligera", "cat": "DRY FIT", "comp": "100% Poliester", "den": "", "anc": "1,80 (+/- 2 cm)", "ren": 4.27, "unit": "kg", "p": 12.45, "piva": 14.88, "b": 17.42}], "img": ["1hnYf3hauo", "11aOMzF90B", "1pasS1abCJ", "1is--wLza3"]}, {"id": "flow-knit", "fam": "dep", "name": "Flow Knit", "v": [{"label": "", "ref": "003-2234 (LISA)", "rec": "Franelas, polos básicos, ropa deportiva ligera", "cat": "Franelas, polos básicos,ropa deportiva ligera.", "comp": "100% ALG", "den": "", "anc": "1,80 (+/- 2 cm)", "ren": 4.2, "unit": "kg", "p": 12.45, "piva": 14.88, "b": 17.42}], "img": ["16Z9fvvD_y", "1ZndpChYje", "1OcUtsqP_F"]}, {"id": "mini-marathon", "fam": "dep", "name": "Mini Marathon", "v": [{"label": "", "ref": "123-MINI-M", "rec": "Forro para chaquetas, malla", "cat": "Malla microperforada con huecos chiquitos", "comp": "100% ALG", "den": "", "anc": "1,80 (+/- 2 cm)", "ren": 6.5, "unit": "kg", "p": 12.45, "piva": 14.88, "b": 17.42}], "img": ["158NOGNGyn", "1DQLrT9agy", "1TY8Vm57Hp"]}, {"id": "eastern-crude", "fam": "dep", "name": "Eastern Crude", "v": [{"label": "", "ref": "123", "rec": "Forro para chaquetas, malla", "cat": "Malla", "comp": "100% poli", "den": "", "anc": "2,1 (+/- 2 cm)", "ren": 8.1, "unit": "kg", "p": 12.45, "piva": 14.88, "b": 17.42}], "img": ["1_Bk6D2ZWg", "1IjfGGbU0x", "1F2QImzvDt"]}, {"id": "storm-lite", "fam": "conf", "name": "Storm Lite", "v": [{"label": "", "ref": "004-20-320", "rec": "Hoddies , Joggers, Pantalones Confy set , Crewneck", "cat": "CONFY", "comp": "RAYON/ POLIESTER", "den": "320 (+/- 5%)", "anc": "1,60 (+/- 2 cm)", "ren": 1.95, "unit": "kg", "p": 14.08, "piva": 16.83, "b": 19.69}], "img": ["1eEp2ei7zx", "1cXM1aNuBa", "1QRT6Y1JIi", "1Df7nwKfzl"]}, {"id": "vuori-cloud-knit", "fam": "conf", "name": "Vuori Cloud Knit", "v": [{"label": "", "ref": "004-20-195", "rec": "Franelas, polos básicos,ropa deportiva ligera, antitranspirante", "cat": "CONFY", "comp": "POLIESTER / SPANDEX", "den": "195 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": 3.42, "unit": "kg", "p": 12.07, "piva": 14.42, "b": 16.88}], "img": ["1k5UgOSJFj", "1jjaQE5WBl", "1wfU_n3SrC", "13HpiUbdl5", "1cNv7kvQF9"]}, {"id": "drill-campoleone", "fam": "conf", "name": "Drill Campoleone", "v": [{"label": "", "ref": "004-20-400", "rec": "Chaquetas, Pantalones , Cahlecos", "cat": "DRILL", "comp": "RAYON/ SPANDEX/ NYLON", "den": "400 (+/- 5%)", "anc": "1,62 (+/- 2 cm)", "ren": 1.54, "unit": "kg", "p": 12.08, "piva": 14.44, "b": 16.89}], "img": ["1dqTEChx13", "1oAHJ_uilR", "1t2TMHYjb6", "1ji2aM3nDn"]}, {"id": "blue-royal", "fam": "conf", "name": "Blue Royal", "v": [{"label": "", "ref": "123-JOG-TT20021", "rec": "Sueteres, chalecos", "cat": "Interior afelpado que da calor. Sublimable", "comp": "100% POLY", "den": "", "anc": "1,6 (+/-2 CM)", "ren": 3.0, "unit": "kg", "p": 12.45, "piva": 14.88, "b": 17.41}], "img": ["1THBw8lFj8", "14BI8tmuVZ"]}, {"id": "french-terry-pesado", "fam": "conf", "name": "French Terry Pesado", "v": [{"label": "", "ref": "003-2304- / RIB 2305", "rec": "Hoodies, joggers, suéteres deportivos", "cat": "Cómodo, absorbe humedad, ideal para “athleisure”.", "comp": "100% ALG", "den": "370 (+/- 5%)", "anc": "", "ren": 1.5, "unit": "kg", "p": 17.2, "piva": 20.55}], "img": ["1GSKcYxdJh", "1yqT6wSg6R", "11YmFte6kS"]}, {"id": "fleece-perchado-liviano", "fam": "conf", "name": "Fleece Perchado Liviano", "v": [{"label": "", "ref": "003-2195 / RIB 2196", "rec": "Sudaderas de invierno, chaquetas, pantalones abrigados", "cat": "Interior afelpado que da calor.", "comp": "100% Algodón", "den": "230 (+/- 5%)", "anc": "1.75 (+/- 2 cm)", "ren": 2.42, "unit": "kg", "p": 16.8, "piva": 20.08, "b": 23.49}], "img": ["13kiSzr3kc", "1kGiu49Mey", "1FSWg7EC2S"]}, {"id": "fleece-perchado-pesado-20-1", "fam": "conf", "name": "Fleece Perchado Pesado 20/1", "v": [{"label": "100% algodón", "ref": "003-2001 / RIB 2134", "rec": "Sudaderas de invierno, chaquetas, pantalones abrigados", "cat": "Interior afelpado que da calor.", "comp": "100% ALG", "den": "330 (+/- 5%)", "anc": "0.92 (+/- 2 cm)", "ren": 1.8, "unit": "kg", "p": 16.8, "piva": 20.08, "b": 23.49}, {"label": "Algodón/poly", "ref": "IT-FRAN-20/1 / RIB IT-RIB-20/10", "rec": "SWEATERS / HODDIES / JOGGERS / SHORTS / CONFY SET / CHAQUETAS", "cat": "", "comp": "Colores Sólidos 85% Alg./ 15% Poly, Marengo y Melange 50% Alg. / 50% Poly", "den": "330 (+/- 5%)", "anc": "0,9 (+/- 2 cm)", "ren": 1.62, "unit": "kg", "p": 15.19, "piva": 18.15, "b": 21.24}], "img": ["1hkuer_FCZ", "1SGkiTZTdN", "1SWGOomsRB"]}, {"id": "algodones-waterproof", "fam": "conf", "name": "Algodones Waterproof", "v": [{"label": "French Terry WP", "ref": "003-2150W / RIB 003-2248W", "rec": "Hoodies, joggers, suéteres deportivos", "cat": "Cómodo, absorbe humedad, ideal para “athleisure”.", "comp": "100% ALG", "den": "230 (+/- 5%)", "anc": "1.87 (+/- 2 cm)", "ren": 2.42, "unit": "kg", "p": 18.85, "piva": 22.52, "b": 26.36}, {"label": "Jersey 20/1 WP", "ref": "003-2030W / RIB 003-2031W", "rec": "Franelas, polos básicos, ropa infantil, ropa deportiva ligera, atinfluidos", "cat": "más grueso, urbano o oversize.", "comp": "100% ALG", "den": "200 (+/- 5%)", "anc": "1.65 (+/- 2 cm)", "ren": 2.94, "unit": "kg", "p": 16.45, "piva": 19.66, "b": 23.0}, {"label": "Jersey 30/1 WP", "ref": "003-2126W / RIB 003-2127W", "rec": "Franelas, polos básicos, ropa infantil, ropa deportiva ligera, atinfluidos", "cat": "más liviano, premium y versatil.", "comp": "100% ALG", "den": "155 (+/- 5%)", "anc": "1.70 (+/- 2 cm)", "ren": 3.69, "unit": "kg", "p": 19.35, "piva": 23.12, "b": 27.06}], "img": ["1jbpTEL-OP", "1wQqZCXbIF", "1-MRt_QpSW"]}, {"id": "piqu-20-1", "fam": "piq", "name": "Piqué 20/1", "v": [{"label": "", "ref": "1293-PIQ-20/1-50/50", "rec": "Polos tipo Lacoste, uniformes escolares y empresariales, ropa deportiva formal", "cat": "Textura con relieve, más estructurado y duradero.", "comp": "50% Alg. / 50% Poly", "den": "", "anc": "0,90 (+/- 2 cm)", "ren": 2.5, "unit": "kg", "p": 12.74, "piva": 15.22, "b": 17.82}], "img": ["1kR7v-LAlU", "15N4EbRqcL", "1gApkKS4OX", "1KsZdX_feK", "1L0RU7n7YU"]}, {"id": "piqu-24-1-lacoste", "fam": "piq", "name": "Piqué 24/1 Lacoste", "v": [{"label": "Tela", "ref": "003-2147", "rec": "Polos tipo Lacoste, uniformes escolares y empresariales, ropa deportiva formal", "cat": "Textura con relieve, más estructurado y duradero.", "comp": "100% ALG", "den": "", "anc": "1,78 (+/- 2 cm)", "ren": 2.5, "unit": "kg", "p": 13.89, "piva": 16.6, "b": 19.42}, {"label": "Combo cuello + puños", "ref": "003-2148", "rec": "Puños y cuellos", "cat": "Puños y cuellos al tono de la tela.", "comp": "100% ALG", "den": "", "anc": "", "ren": null, "unit": "kg", "p": 15.89, "piva": 18.99, "b": 22.22}], "img": ["1g88qVuQsc", "1g8moDkZ5k"]}, {"id": "piqu-lacoste-2-cabos", "fam": "piq", "name": "Piqué Lacoste 2 Cabos", "v": [{"label": "Tela", "ref": "003-2142", "rec": "Polos tipo Lacoste, uniformes escolares y empresariales, ropa deportiva formal", "cat": "Textura con relieve, más estructurado y duradero.", "comp": "100% ALG", "den": "", "anc": "1,9 (+/- 2 cm)", "ren": 2.29, "unit": "kg", "p": 19.97, "piva": 23.86, "b": 27.93}, {"label": "Combo cuello + puños", "ref": "003-2143", "rec": "Puños y cuellos", "cat": "Puños y cuellos al tono de la tela.", "comp": "100% ALG", "den": "", "anc": "", "ren": null, "unit": "kg", "p": 21.97, "piva": 26.25, "b": 30.72}], "img": ["1LIpSbGB4k"]}, {"id": "piqu-30-1-con-lycra", "fam": "piq", "name": "Piqué 30/1 con Lycra", "v": [{"label": "", "ref": "003-2140", "rec": "Polos tipo Lacoste, uniformes escolares y empresariales, ropa deportiva formal", "cat": "Textura con relieve, más estructurado y duradero.", "comp": "97% Alg. / 3% Lyc", "den": "200 (+/- 5%)", "anc": "1,90 (+/- 2 cm)", "ren": 2.51, "unit": "kg", "p": 14.89, "piva": 17.79, "b": 20.82}], "img": ["1mPhrpnlQU", "1WzWelevp4", "1rhWQbLnb3"]}, {"id": "alo-black", "fam": "imp", "name": "Alo Black", "v": [{"label": "", "ref": "004-20-175", "rec": "Corta Viento, Chaqueta forradas, Short deportivos, Pantalones, Joggers, Chalecos", "cat": "IMPERMEABLE", "comp": "90% Nylon / 10% Spandex", "den": "210 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 5.08, "piva": 6.07, "b": 7.1}], "img": ["1A1f87zYNG", "1PnGR5nCFQ", "1H7l80QzNd", "1xq8yTHJUl", "1Zo-L3fG8m", "1FO5hyQj-a"]}, {"id": "columbia-waterproof", "fam": "imp", "name": "Columbia Waterproof", "v": [{"label": "", "ref": "004-20-095", "rec": "Corta Viento, Chaqueta forradas, Short deportivos, Pantalones, Joggers, Chalecos", "cat": "IMPERMEABLE", "comp": "100% Poliester", "den": "95 (+/- 5%)", "anc": "1,50 (+/-2 cm)", "ren": null, "unit": "m", "p": 3.08, "piva": 6.4, "b": 7.49}], "img": ["1OiPPFLQ82", "1zBivT5mB0", "1Qlu4vKZVO"]}, {"id": "goretex", "fam": "imp", "name": "Goretex", "v": [{"label": "", "ref": "004-20-305", "rec": "Corta Viento, Chaqueta forradas, Short deportivos, Pantalones, Joggers, Chalecos", "cat": "WATER REPELLENT", "comp": "100% Poliester", "den": "305 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 4.59, "piva": 5.49, "b": 6.42}], "img": ["1qi5Lw26PA", "1Z-0OXNQJb", "1UtV2YxSp6", "1bZynVt7XQ"]}, {"id": "movetek", "fam": "imp", "name": "Movetek", "v": [{"label": "", "ref": "004-20-165", "rec": "Corta Viento, Chaqueta forradas, Short deportivos, Pantalones, Joggers, Chalecos", "cat": "WATER REPELLENT", "comp": "82% NYLON / 18% LICRA", "den": "165 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 5.28, "piva": 6.31, "b": 7.38}], "img": ["1wkBKsQXRo", "1w82dnj6P1", "1mJycsiipR", "1i2l3aeX4Q", "1UNnQ3sbGb"]}, {"id": "parka", "fam": "imp", "name": "Parka", "v": [{"label": "", "ref": "004-20-68", "rec": "Corta Viento, Chaqueta forradas, Short deportivos, Pantalones, Joggers, Chalecos", "cat": "WATER REPELLENT", "comp": "100% Poliester", "den": "68 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 2.99, "piva": 3.57, "b": 4.18}], "img": ["1pdsBPjOxm", "1TZyf9SFJB", "1XQEr_PHwX", "1tuAicKOon"]}, {"id": "rainy", "fam": "imp", "name": "Rainy", "v": [{"label": "", "ref": "004-20-065", "rec": "Corta Viento, Chaqueta forradas, Short deportivos, Pantalones, Joggers, Chalecos", "cat": "IMPERMEABLE", "comp": "100% Poliester", "den": "65 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 2.69, "piva": 3.21, "b": 3.76}], "img": ["1_OqlO5aIP", "1K26Tnzymg", "1CALDuFa4u", "1tiMDINBLv"]}, {"id": "spyder-90-10", "fam": "imp", "name": "Spyder 90/10", "v": [{"label": "", "ref": "004-20-110", "rec": "Corta Viento, Chaqueta forradas, Short deportivos, Pantalones, Joggers, Chalecos", "cat": "IMPERMEABLE", "comp": "90% Poly / 10% Spandex", "den": "110 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 3.07, "piva": 3.67, "b": 4.29}], "img": ["13GSRPiBIP", "12ktmUHZze", "1epJMy8j58", "1NoMPjUXbt"]}, {"id": "urban-heather", "fam": "imp", "name": "Urban Heather", "v": [{"label": "", "ref": "004-20-140", "rec": "Corta Viento, Chaqueta forradas, Short deportivos, Pantalones, Joggers, Chalecos, Camisas Clasicas", "cat": "WATER REPELLENT", "comp": "92% POLIESTER / 8% SPANDEX", "den": "140 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 3.89, "piva": 4.65, "b": 5.44}], "img": ["1v38kyWhsE", "17PFTBZodx", "1Gp-rgpN_1", "1_FmHyfbVL", "13SqFvsFCJ"]}, {"id": "nylon-100-mono", "fam": "imp", "name": "Nylon 100% Mono", "v": [{"label": "", "ref": "MA-132-A1", "rec": "Corta Viento, Chaqueta forradas, Short deportivos, Pantalones, Joggers, Chalecos", "cat": "IMPERMEABLE", "comp": "NYLON 100%", "den": "210 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 3.87, "piva": 4.62, "b": 5.41}], "img": ["12r_s_0jr6", "1FXJSK4htI", "1XBrmvfnmP"]}, {"id": "nylon-100-camiser-a", "fam": "imp", "name": "Nylon 100% Camisería", "v": [{"label": "", "ref": "TB-132-A1", "rec": "Corta Viento, Chaqueta forradas, Short deportivos, Pantalones, Joggers, Chalecos", "cat": "IMPERMEABLE", "comp": "NYLON 100%", "den": "210 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 3.79, "piva": 4.53, "b": 5.3}], "img": []}, {"id": "chambray", "fam": "pla", "name": "Chambray", "v": [{"label": "4 oz", "ref": "1293-TTC-CH4", "rec": "CAMISAS CLASICAS / SHORTS/ VESTIDOS", "cat": "CHAMBRAY", "comp": "100% ALG", "den": "4 OZ", "anc": "1,62 MTS", "ren": null, "unit": "m", "p": 3.39, "piva": 4.05, "b": 4.74}, {"label": "7 oz", "ref": "1293-TTC-CH7", "rec": "CAMISAS CLASICAS / SHORTS/ VESTIDOS", "cat": "CHAMBRAY", "comp": "100% ALG", "den": "7 OZ", "anc": "1,70 MTS", "ren": null, "unit": "m", "p": 2.7, "piva": 3.23, "b": 3.78}, {"label": "Oxford", "ref": "003-3049", "rec": "CAMISAS CLASICAS / SHORTS/ VESTIDOS", "cat": "CAMISERIA", "comp": "100 % ALG", "den": "NO APLICA", "anc": "", "ren": null, "unit": "m", "p": 3.75, "piva": 4.48, "b": 5.24}, {"label": "Fantasía", "ref": "0033049-90388", "rec": "CAMISERIA", "cat": "", "comp": "", "den": "", "anc": "", "ren": null, "unit": "m", "p": 3.75, "piva": 4.48, "b": 5.24}], "img": ["1IghjWj1Wu", "16zOY7JxHF", "1wsI3r8t7G"]}, {"id": "drill-sangam", "fam": "pla", "name": "Drill Sangam", "v": [{"label": "", "ref": "19275", "rec": "PANTALONES / CHAQUETAS / BERMUDAS / TOE BAGS / UNIFORMES CORPORRATIVOS", "cat": "DRILL", "comp": "100 % Poliester", "den": "8 OZ", "anc": "1,72 MTS", "ren": null, "unit": "m", "p": 4.4, "piva": 5.26, "b": 6.15}], "img": ["1JYeavEzZj", "1_qq3dq1wq", "1ZW_fLmkfK"]}, {"id": "drill-trinidad-stretch", "fam": "pla", "name": "Drill Trinidad Stretch", "v": [{"label": "", "ref": "093-TRIN", "rec": "PANTALONES / CHAQUETAS / BERMUDAS", "cat": "DRILL", "comp": "97% Algodon / 3% Elastano", "den": "8 OZ", "anc": "1,50 MTS", "ren": null, "unit": "m", "p": 5.3, "piva": 6.33, "b": 7.41}], "img": ["1WhTfjYC7j", "1u7VZNCBGH", "1v5fupBBpp", "13AVB1Wrg6"]}, {"id": "legant", "fam": "pla", "name": "Legant", "v": [{"label": "", "ref": "W-0489", "rec": "CAMISAS CLASICAS DE BOTONES / UNIFORMES CORPORATIVOS", "cat": "CAMISERIA", "comp": "50 % POLIESTER / 50% ALG", "den": "NO APLICA", "anc": "1,69 MTS", "ren": null, "unit": "m", "p": 4.4, "piva": 5.26, "b": 6.15}], "img": ["1a8OBS2RTG", "1aDBGWTnar", "1MSB-KkpnN", "1BPOnpFM2h"]}, {"id": "popelina-peinada-7070", "fam": "pla", "name": "Popelina Peinada 7070", "v": [{"label": "", "ref": "003-POPEL / 7070 / 7272 / M00970063", "rec": "CAMISAS CLASICAS DE BOTONES / UNIFORMES CORPORATIVOS", "cat": "CAMISERIA", "comp": "100% ALG", "den": "NO APLICA", "anc": "1,50 MTS", "ren": null, "unit": "m", "p": 6.59, "piva": 7.88, "b": 9.22}], "img": []}, {"id": "popelina-element", "fam": "pla", "name": "Popelina Element", "v": [{"label": "", "ref": "20190586", "rec": "CAMISA DE BOTONES CLASICAS / UNIFORMES CORPORATIVOS", "cat": "CAMISERIA", "comp": "85% POLIESTER / 15% ALG", "den": "NO APLICA", "anc": "1,46 MTS", "ren": null, "unit": "m", "p": 4.3, "piva": 5.14, "b": 6.01}], "img": ["1NDejF1M-I"]}, {"id": "lona-cruda", "fam": "pla", "name": "Lona Cruda", "v": [{"label": "", "ref": "003-11.206.17", "rec": "TOE BAGS / BOLSOS / TOTE", "cat": "INSUMO", "comp": "100% ALG", "den": "254 g/m2", "anc": "1,69 MTS", "ren": null, "unit": "m", "p": 4.27, "piva": 5.1, "b": 5.97}], "img": ["17pSaWOkxR", "1dj798Ys2v"]}, {"id": "toalla-felpa-335-g", "fam": "esp", "name": "Toalla Felpa 335 g", "v": [{"label": "", "ref": "003-335-BLANCO", "rec": "TOALLA", "cat": "TOALLA", "comp": "100 % ALG", "den": "335 GRMS", "anc": "1,5 MTS", "ren": null, "unit": "m", "p": 5.64, "piva": 6.74, "b": 7.89}], "img": ["1j9zSp7iBw", "1b-S4XDhlb", "1bBhK3cnpH", "1gotNuqmdY", "1JZ3Rd7pcv", "1s3cJemSCI"]}, {"id": "flat-towel", "fam": "esp", "name": "Flat Towel", "v": [{"label": "", "ref": "004-20-200", "rec": "Microfibra , Toallas", "cat": "MICROFIBRA", "comp": "Poly / Nylon", "den": "200 (+/- 5%)", "anc": "1,5 (+/- 2 cm)", "ren": null, "unit": "m", "p": 3.99, "piva": 4.77, "b": 5.58}], "img": ["10wBo8XZFR", "1khuyR9ax6", "1VAJbbkUea", "1pz4uIztjp"]}, {"id": "satin-breeze", "fam": "esp", "name": "Satin Breeze", "v": [{"label": "", "ref": "004-20-102", "rec": "Pareos, pañuelos", "cat": "SATEN", "comp": "Poly / Spandex", "den": "102 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 2.2, "piva": 2.63, "b": 3.08}], "img": ["17mEKQRnUw", "1I-QAc3ZU6", "1Rk1Eu0Z9k"]}, {"id": "swim-tech-poly", "fam": "esp", "name": "Swim Tech Poly", "v": [{"label": "", "ref": "004-20-RQ-170", "rec": "Traje de baños de hombre", "cat": "TRAJE DE BANO", "comp": "100% Poliester", "den": "170 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 2.29, "piva": 2.74, "b": 3.2}], "img": ["1lSyW2CoQ6", "1McA_bVw5x", "1AYRlAFUZh"]}, {"id": "camiser-a-rayas-y-cuadros", "fam": "pla", "name": "Camisería rayas y cuadros", "v": [{"label": "", "ref": "7070-CRED", "rec": "CAMISAS CLASICAS DE BOTONES / UNIFORMES CORPORATIVOS", "cat": "CAMISERIA", "comp": "100 % ALG", "den": "NO APLICA", "anc": "1,50 MTS", "ren": null, "unit": "m", "p": 6.89, "piva": 8.23, "b": 9.64}], "img": ["1AS5HdHfg6", "1pPLwKrwCX", "1ZxjmjF26l", "1iqRiAG38Z", "1DKE9VU2J5"]}, {"id": "gabardina-premium", "fam": "pla", "name": "Gabardina Premium", "v": [{"label": "", "ref": "0525203", "rec": "PANTALONES / CHAQUETAS / SASTRERIA", "cat": "PANTALONERIA", "comp": "40% POLY / 60% VISCOZA", "den": "NO APLICA", "anc": "1,50 MTS", "ren": null, "unit": "m", "p": 2.98, "piva": 3.56, "b": 4.17}], "img": ["1zb6gqIhSx", "1l8A1mF1iM"]}, {"id": "lino", "fam": "pla", "name": "Lino", "v": [{"label": "", "ref": "5F-7F", "rec": "CAMISERIA", "cat": "CAMISERIA", "comp": "55% LINO 45%ALG", "den": "", "anc": "1,50 MTS", "ren": null, "unit": "m", "p": 10.98, "piva": 13.12, "b": 15.35}], "img": ["1A-U904jCV", "1wqQw8GOqc", "1VFCy5W7wf", "1jkTtw-CjD"]}, {"id": "jersey-28-1-2-cabos", "fam": "conf", "name": "Jersey 28/1 2 Cabos", "v": [{"label": "", "ref": "0032310/2311", "rec": "Franelas, polos básicos, ropa infantil, ropa casual pesada", "cat": "más grueso, urbano o oversize.", "comp": "100% ALG", "den": "260 (+/- 5%)", "anc": "1,66 (+/- 2 cm)", "ren": 2.32, "unit": "kg", "p": 17.48, "piva": 20.89, "b": 24.44}], "img": ["1B0EOfqWqO", "1G5L-9LP_9", "1O7JJek2vj", "1h99oXfyM2"]}, {"id": "lino-viscosa", "fam": "pla", "name": "Lino Viscosa", "v": [{"label": "", "ref": "16161005", "rec": "PANTALONES / CHAQUETAS / BERMUDAS", "cat": "PANTALONERIA", "comp": "55% VISCOZA / 45% LINO", "den": "NO APLICA", "anc": "1,50 MTS", "ren": null, "unit": "m", "p": 6.59, "piva": 7.88, "b": 9.22}], "img": ["1Zhw-gaQw-", "1iY9bN9hyJ"]}, {"id": "fleece-perchado-colegial-pool", "fam": "conf", "name": "Fleece Perchado Colegial Pool", "v": [{"label": "", "ref": "003-2072 / RIB 2076", "rec": "Sudaderas de invierno, chaquetas, pantalones abrigados", "cat": "Interior afelpado que da calor.", "comp": "85% Algodón, 15% Poliéster", "den": "", "anc": "1,8 (+/- 2 cm)", "ren": 2.45, "unit": "kg", "p": 13.27, "piva": 15.86, "b": 18.56}], "img": ["1VGxtD-Mln"]}, {"id": "plush", "fam": "conf", "name": "Plush", "v": [{"label": "", "ref": "003-2130", "rec": "Ropa ajustada al cuerpo, pantalones, tops ajustados, faldas", "cat": "Terciopelo con elasticidad", "comp": "100% POLY", "den": "", "anc": "1,7 (+/- 2 cm)", "ren": 4.2, "unit": "kg", "p": 11.39, "piva": 13.62, "b": 15.93}], "img": ["18Y4l_Ag1Q", "1PH8Fty6ig", "14SerOzYiA", "10N6uh09s3"]}, {"id": "french-terry-diagonal", "fam": "conf", "name": "French Terry Diagonal", "v": [{"label": "", "ref": "003-2241 / RIB 2242", "rec": "Hoodies, joggers, suéteres deportivos", "cat": "Cómodo, absorbe humedad, ideal para “athleisure”.", "comp": "100% ALG", "den": "", "anc": "1,75 (+/- 2 cm)", "ren": 2.85, "unit": "kg", "p": 15.27, "piva": 18.25, "b": 21.35}], "img": ["1Zhwg_BSxf", "1_imEPxx0f", "1h3lvtzJmS"]}, {"id": "jersey-24-1-100-algod-n", "fam": "conf", "name": "Jersey 24/1 100% algodón", "v": [{"label": "", "ref": "069-J-24/1-100 ALG. PEIN", "rec": "Franelas, polos básicos, ropa infantil, ropa deportiva ligera", "cat": "medio, estándar para franelas.", "comp": "100% ALG", "den": "", "anc": "0,8 (+/- 2 cm)", "ren": 3.5, "unit": "kg", "p": 13.15, "piva": 15.71, "b": 18.39}], "img": ["13tlt0ao9Y", "1TmsBXuhUK"]}, {"id": "micro-vent", "fam": "dep", "name": "Micro Vent", "v": [{"label": "", "ref": "004-20-90", "rec": "Franelas, polos básicos,ropa deportiva ligera, antitranspirante", "cat": "DRY FIT", "comp": "POLIESTER / SPANDEX", "den": "90 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 2.99, "piva": 3.57, "b": 4.18}], "img": ["14x3qOsw60", "1WLFZRCPzv", "1ILLBj5wsO", "1saETvS8nH"]}, {"id": "uniqlo", "fam": "imp", "name": "Uniqlo", "v": [{"label": "", "ref": "004-20-48", "rec": "Corta Viento, Chaqueta forradas, Chalecos", "cat": "WATER REPELLENT", "comp": "100% NYLON", "den": "48 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 2.89, "piva": 3.45, "b": 4.04}], "img": ["1fe5_eDWPG", "1hzGtZkLYb"]}, {"id": "muji", "fam": "imp", "name": "Muji", "v": [{"label": "", "ref": "004-20-185", "rec": "Corta Viento, Chaqueta forradas, Short deportivos, Pantalones, Joggers, Chalecos", "cat": "WATER REPELLENT", "comp": "80% POLIESTER / 20% NYLON", "den": "185 (+/- 5%)", "anc": "1,50 (+/- 2 cm)", "ren": null, "unit": "m", "p": 4.08, "piva": 4.88, "b": 5.71}], "img": ["1rWPbyvgX5", "14I0HwUN3N", "1ZR4raoNNB", "1LCt-isLrU"]}, {"id": "servilleta", "fam": "esp", "name": "Servilleta", "v": [{"label": "", "ref": "", "rec": "SERVILLETAS", "cat": "UNIFORMES", "comp": "100% ALGO", "den": "", "anc": "2,3", "ren": null, "unit": "m", "p": 4.39, "piva": 5.25, "b": 6.14}], "img": ["1MgPYxZbyZ"]}, {"id": "tapicer-a", "fam": "esp", "name": "Tapicería", "v": [{"label": "", "ref": "5078", "rec": "BOLSOS / MUEBLES / MANTELES", "cat": "TAPICERIA", "comp": "100% ALG", "den": "NO APLICA", "anc": "1,50 MTS", "ren": null, "unit": "m", "p": 4.64, "piva": 5.54, "b": 6.49}], "img": ["15Vvy5DJ3q", "1S1RQT5rQb", "1zlHsDdu5Y", "1xFgrjCCRA"]}]};
-const MODE = 'cliente';
-const VEND = [{"name": "Michelle", "n": "584241930489"}, {"name": "Oriana", "n": "584241930508"}, {"name": "Yasmin", "n": "584141087292"}];
-const CLI = MODE==='cliente';
-let TASA={v:881.69,f:'lista de precios',src:'lista'};
-if(CLI)TASA={v:/*TASA*/881.0664/*FIN*/,f:''};
-if(!CLI)try{const s=JSON.parse(localStorage.getItem('idx-tasa')||'null');if(s&&s.v)TASA=s}catch(e){}
-const nm=n=>n.toLocaleString('es-VE',{maximumFractionDigits:2});
-const xm=v=>v.ren?{b:v.p/v.ren,t:usdT(v,1).tot/v.ren,bs:bsOf(v)?bsOf(v)/v.ren:null}:null;
-const fbs=n=>'Bs '+n.toLocaleString('es-VE',{minimumFractionDigits:2,maximumFractionDigits:2});
-const subTxt=(v,q)=>(v.ren&&q?`${nm(q)} kg ≈ ${nm(Math.round(q*v.ren*10)/10)} metros · `:'')+fmt(usdT(v,q).tot)+(bsOf(v)?' · '+fbs(bsOf(v)*q):'')+' (con impuestos)';
-const IVA=1.16;
-const usdT=(v,q)=>{const b=v.p*q,tot=(v.piva||v.p*1.16*1.03)*q,iva=b*.16;return {b,iva,igtf:tot-b-iva,tot}};
-const bsT=(v,q)=>{const x=v.pbs||v.b;if(!x)return null;const b=x*TASA.v*q;return {b,iva:b*.16,tot:b*IVA}};
-const sumT=(f)=>cart.reduce((a,l)=>{const r=f(l,l.q);if(!r||!a)return null;for(const k in r)a[k]=(a[k]||0)+r[k];return a},{});
-function desg(u,s,title){
-  const d=(n,f)=>n==null?'—':f(n);
-  return `<table class="desg"><thead><tr><th>${title||'Desglose'}</th><th>Pago en $</th><th>Pago en Bs</th></tr></thead><tbody>
-  <tr><td>Base imponible</td><td>${fmt(u.b)}</td><td>${d(s&&s.b,fbs)}</td></tr>
-  <tr><td>IVA 16%</td><td>${fmt(u.iva)}</td><td>${d(s&&s.iva,fbs)}</td></tr>
-  <tr><td>IGTF 3%</td><td>${fmt(u.igtf)}</td><td>—</td></tr>
-  <tr class="t"><td>Total</td><td>${fmt(u.tot)}</td><td>${d(s&&s.tot,fbs)}</td></tr></tbody></table>`;
-}
-const bsOf=v=>{const b=v.pbs||v.b;return b?b*TASA.v*IVA:null};
-let tdoc=null, editT=false;
-function drawTasa(){
-  const el=$('#tasa'); if(CLI){el.hidden=true;return} el.hidden=false;
-  el.innerHTML=editT?`<label for="tin">Tasa BCV de hoy</label><input id="tin" inputmode="decimal" value="${String(TASA.v).replace('.',',')}"><button class="btn" id="tsave" style="padding:6px 12px">Guardar</button><button class="lnk" id="tcancel">Cancelar</button>`
-   :`<span>Tasa BCV <b class="num">${TASA.v.toLocaleString('es-VE',{minimumFractionDigits:2,maximumFractionDigits:4})}</b> · ${TASA.f}</span><button class="lnk" id="tedit">Actualizar tasa</button>`;
-}
-(async()=>{ if(CLI||!window.claude)return; const db=await claude.use('db'); if(!db)return; tdoc=db.doc('config/tasa');
-  tdoc.onSnapshot(s=>{if(s.exists){const d=s.data();if(d.v>0){TASA={v:+d.v,f:d.f||'',src:'db'};try{localStorage.setItem('idx-tasa',JSON.stringify(TASA))}catch(e){};drawTasa();render();drawTray();if(cur)drawSheet()}}},()=>{});
-})();
-const FAM = DATA.fam, ITEMS = DATA.items;
-const LEDE = {
-  dep:'Licras, dry fit y mallas para leggins, tops, franelas deportivas y uniformes deportivos. La mayoría se vende por kilo.',
-  conf:'Telas de confort, felpas, french terry y algodones waterproof para hoodies, joggers y athleisure. Venta por kilo.',
-  piq:'Piqué para chemises tipo polo y uniformes corporativos, con sus combos de cuello y puños.',
-  imp:'Cortavientos, impermeables y water repellent para chaquetas, chalecos y shorts. Venta por metro.',
-  pla:'Camisería, drill y lona para camisas de botones, pantalones y uniformes. Venta por metro.',
-  esp:'Toallas, microfibra, satén y traje de baño.'
-};
-const $=s=>document.querySelector(s);
-const fmt=n=>'$'+n.toLocaleString('es-VE',{minimumFractionDigits:2,maximumFractionDigits:2});
-const ulab=u=>u==='kg'?'/kg':u==='m'?'/m':'/combo';
-const uword=u=>u==='kg'?'kg':u==='m'?'m':'combos';
-const norm=s=>(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
-let fam='all', q='', cart=[];
-try{cart=JSON.parse(localStorage.getItem('idx-cot2')||'[]')}catch(e){cart=[]}
-function save(){try{localStorage.setItem('idx-cot2',JSON.stringify(cart))}catch(e){}}
-function toast(t){const el=$('#toast');el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,1800)}
-function hay(it){return norm([it.name,FAM[it.fam],...it.v.flatMap(v=>[v.label,v.ref,v.cat,v.comp,v.rec])].join(' '))}
-ITEMS.forEach(it=>it._s=hay(it));
-const minV=it=>it.v.filter(v=>!/^Combo/.test(v.label)).reduce((a,b)=>a.p<=b.p?a:b);
-
-function renderFams(){
-  const cnt=k=>ITEMS.filter(i=>k==='all'||i.fam===k).length;
-  $('#fams').innerHTML=[['all','Todas'],...Object.entries(FAM)].map(([k,l])=>`<button class="fam" data-f="${k}" aria-pressed="${fam===k}">${l}<span>${cnt(k)}</span></button>`).join('');
-}
-function card(it){
-  const v=minV(it), many=it.v.length>1;
-  const ph=it.img.length?`<img loading="lazy" src="t/${it.img[0]}.jpg" alt="${it.name}">${it.img.length>1?`<span class="cnt">${it.img.length} fotos</span>`:''}`:`<div class="noimg">Foto pendiente</div>`;
-  return `<button class="card" data-id="${it.id}"><div class="ph">${ph}</div><div class="cb"><span class="cat">${v.cat||FAM[it.fam]}</span><h3>${it.name}</h3>${v.ref?`<span class="ref">Ref. ${v.ref}</span>`:''}
-  <div class="pr"><b class="num">${many?'<small>desde </small>':''}${fmt(v.p)}<small>${ulab(v.unit)}</small></b>${`<span class="bs num">Con impuestos: <b>${fmt(usdT(v,1).tot)}</b>${bsOf(v)?` · <b>${fbs(bsOf(v))}</b>`:''}</span>`}${v.ren?`<span class="mt num">1 kg rinde ≈ ${nm(v.ren)} m · referencia ≈ <b>${fmt(xm(v).b)}</b> el metro (base). Se vende solo por kilo</span>`:''}</div></div></button>`;
-}
-function render(){
-  const qq=norm(q).trim().split(/\s+/).filter(Boolean);
-  const keys=fam==='all'?Object.keys(FAM):[fam];
-  let html='',n=0;
-  for(const k of keys){
-    const its=ITEMS.filter(i=>i.fam===k&&qq.every(t=>i._s.includes(t)));
-    if(!its.length) continue; n+=its.length;
-    html+=`<section id="f-${k}"><h2>${FAM[k]} <small>${its.length} telas</small></h2><p class="lede">${LEDE[k]}</p><div class="grid">${its.map(card).join('')}</div></section>`;
-  }
-  $('#list').innerHTML=html||`<p class="empty">No hay telas que coincidan con “${q}”. Prueba con otro nombre o uso.</p>`;
-}
-
-/* ficha */
-let cur=null, vi=0, gi=0, qtyv=1;
-function vtext(it,v){
-  const L=[`*${it.name}${v.label?' · '+v.label:''}* — IDEATEX`];
-  if(v.ref)L.push(`Referencia: ${v.ref}`);
-  if(v.comp)L.push(`Composición: ${v.comp}`);
-  if(v.den&&!/no aplica/i.test(v.den))L.push(`Densidad: ${v.den}`);
-  if(v.anc)L.push(`Ancho: ${v.anc}`);
-  if(v.ren)L.push(`Rendimiento: 1 kg rinde ≈ ${nm(v.ren)} metros (se vende solo por kilo; referencia ≈ ${fmt(xm(v).b)} el metro, precio base)`);
-  if(v.rec)L.push(`Ideal para: ${v.rec}`);
-  {const u=usdT(v,1),s=bsT(v,1),un=ulab(v.unit);
-    L.push('',`*Pago en $* (${un.slice(1)})`,`Base imponible: ${fmt(u.b)} · IVA 16%: ${fmt(u.iva)} · IGTF 3%: ${fmt(u.igtf)}`,`Total: *${fmt(u.tot)}${un}*`);
-    if(s)L.push('',`*Pago en Bs*`,`Base imponible: ${fbs(s.b)} · IVA 16%: ${fbs(s.iva)}`,`Total: *${fbs(s.tot)}${un}*`);}
-  L.push(CLI?'Precios sujetos a cambio sin previo aviso.':'Precio base en $. Sujeto a cambio sin previo aviso.');
-  return L.join('\n');
-}
-function open(id){cur=ITEMS.find(i=>i.id===id);vi=0;gi=0;qtyv=1;drawSheet();$('#scrim').hidden=false;$('#sheet').hidden=false;document.body.style.overflow='hidden'}
-function close(){$('#scrim').hidden=true;$('#sheet').hidden=true;document.body.style.overflow='';cur=null}
-function drawSheet(){
-  const it=cur, v=it.v[vi];
-  const gal=it.img.length?`<div class="big"><img src="f/${it.img[gi]}.jpg" alt="${it.name}, foto ${gi+1}"></div>${it.img.length>1?`<div class="thumbs">${it.img.map((k,i)=>`<button data-g="${i}" aria-current="${i===gi}" aria-label="Foto ${i+1}"><img src="t/${k}.jpg" alt=""></button>`).join('')}</div>`:''}`:`<div class="big"><div class="ph" style="height:100%"><div class="noimg">Esta tela todavía no tiene foto en la carpeta del catálogo de WhatsApp.</div></div></div>`;
-  const vars=it.v.length>1?`<div class="vars">${it.v.map((x,i)=>`<button class="var" data-v="${i}" aria-pressed="${i===vi}"><span class="vl">${x.label}<small>${x.comp||''}${x.ren?' · '+String(x.ren).replace('.',',')+' m/kg':''}</small></span><span class="vp num"><b>${fmt(x.p)}</b><small>${ulab(x.unit)}${x.ren?' · metro ≈ '+fmt(xm(x).b)+' (referencia)':''}${bsOf(x)?'<br>'+fbs(bsOf(x))+ulab(x.unit)+(CLI?'':' IVA incl.'):''}</small></span></button>`).join('')}</div>`:
-   `<div class="var" aria-pressed="true" style="cursor:default"><span class="vl">Precio base</span><span class="vp num"><b>${fmt(v.p)}</b><small>${ulab(v.unit)}${v.ren?'':''}</small></span></div>`;
-  const row=(t,d)=>d&&!/^no aplica$/i.test(d)?`<dt>${t}</dt><dd>${d}</dd>`:'';
-  $('#sheet').innerHTML=`<button class="x" id="x" aria-label="Cerrar">×</button><div class="sh-in">
-   <div class="gal">${gal}</div>
-   <div class="det"><div><span class="cat">${FAM[it.fam]}${v.cat?' · '+v.cat:''}</span><h2>${it.name}</h2></div>
-   ${vars}
-   <dl class="ficha">${row('Referencia',v.ref)}${row('Composición',v.comp)}${row('Densidad',v.den)}${row('Ancho',v.anc)}${v.ren?row('Rendimiento','1 kg rinde ≈ '+nm(v.ren)+' metros'):''}${row('Usos',v.rec)}</dl>
-   ${v.ren?`<div class="kgx"><b>¿Cuánto rinde por metro?</b> Esta tela se vende <b>únicamente por kilo</b>. Cada kilo rinde aproximadamente <b>${nm(v.ren)} metros</b>${v.anc?` de tela de ${(a=>/m/i.test(a)?a.toLowerCase():a+' m')(v.anc.replace(/\s*\(.*\)/,'').trim())} de ancho`:''}. Como referencia, eso equivale a unos <b>${fmt(xm(v).b)}</b> por metro (precio base, antes de impuestos); no se vende por metro. Para saber cuántos kilos necesitas, divide los metros entre ${nm(v.ren)}. Ejemplo: 10 metros ≈ ${nm(Math.ceil(10/v.ren*10)/10)} kg.</div>`:''}${desg(usdT(v,1),bsT(v,1),'Precio '+ulab(v.unit))+((v.pbs||v.b)?'':'<p class="note">Esta tela no tiene precio para pago en Bs en la lista.</p>')}
-   <div class="quote"><label for="qty">Cantidad (${uword(v.unit)})</label>
-     <div class="qty"><button data-q="-1" aria-label="Menos">−</button><input id="qty" inputmode="decimal" value="${qtyv}"><button data-q="1" aria-label="Más">+</button></div>
-     <span class="sub">Subtotal <b class="num" id="subt">${subTxt(v,qtyv)}</b></span>
-     <button class="btn" id="add">${CLI?'Agregar a mi pedido':'Agregar a cotización'}</button></div>
-   ${CLI?`<div class="acts">${waBtns('Hola, quiero información de esta tela:\n'+vtext(it,v),'Consultar')}</div>`:`<div class="acts"><button class="btn ghost" id="cp">Copiar ficha para WhatsApp</button><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(vtext(it,v))}">Enviar por WhatsApp</a></div>`}
-   ${it.name.startsWith('Piqué')&&it.v.some(x=>/^Combo/.test(x.label))?'<p class="note">El combo es el juego de cuello y puños al tono de la tela.</p>':''}
-   </div></div>`;
-}
-function copy(text){
-  const done=()=>toast('Copiado. Pégalo en WhatsApp');
-  const fb=()=>{const t=document.createElement('textarea');t.className='fallback';t.value=text;t.readOnly=true;const host=$('#sheet').hidden?$('#list'):$('#sheet .det')||$('#sheet');host.prepend(t);t.select();toast('Selecciona y copia el texto')};
-  try{navigator.clipboard.writeText(text).then(done,fb)}catch(e){fb()}
-}
-
-/* cotización */
-function waUrl(n,txt){return 'https://wa.me/'+String(n).replace(/\D/g,'')+'?text='+encodeURIComponent(txt)}
-function waBtns(txt,verb,q){
-  if(!VEND.length) return `<a class="btn wa" ${q?'id="waq"':''} target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(txt)}">${verb==='Consultar'?'Consultar por WhatsApp':'Enviar por WhatsApp'}</a>`;
-  const x=pickVend();
-  return `<a class="btn wa" data-wn="${x.n}" target="_blank" rel="noopener" href="${waUrl(x.n,txt)}">${verb==='Consultar'?'Consultar por WhatsApp':'Enviar por WhatsApp'}</a>`;
-}
-/* Reparto equitativo: cada visitante recibe una vendedora al azar (1/3 cada una) y la conserva en sus próximas visitas. */
+const VEND=[{"name":"Michelle","n":"584241930489"},{"name":"Oriana","n":"584241930508"},{"name":"Yasmin","n":"584141087292"}];
 function pickVend(){
   let i=-1;
   try{const s=localStorage.getItem('idx-vend');const k=VEND.findIndex(v=>v.n===s);if(k>=0)i=k}catch(e){}
@@ -312,62 +246,8 @@ function pickVend(){
     i=r[0]%VEND.length;try{localStorage.setItem('idx-vend',VEND[i].n)}catch(e){}}
   return VEND[i];
 }
-function cartTotal(){return cart.reduce((s,l)=>s+l.p*l.q,0)}
-function cartBs(){return cart.every(l=>l.pbs)?cart.reduce((s,l)=>s+l.pbs*l.q*TASA.v*IVA,0):null}
-function drawTray(){const t=$('#tray');t.hidden=!cart.length;$('#tcount').textContent=cart.length;$('#ttot').textContent=fmt((sumT(usdT)||{}).tot||0)}
-function quoteText(){
-  const c=norm($('#cli')?.value||'')?$('#cli').value:'';
-  const L=CLI?['*Hola IDEATEX, quiero hacer este pedido*'+(c?` (${c})`:''),'']:['*Cotización IDEATEX*'+(c?` — ${c}`:''),new Date().toLocaleDateString('es-VE'),''];
-  cart.forEach(l=>L.push(`• ${l.n}: ${String(l.q).replace('.',',')} ${uword(l.u)} × ${fmt(l.p)} = ${fmt(l.p*l.q)}`));
-  {const u=sumT(usdT),s=sumT(bsT);
-    L.push('','*Pago en $*',`Base imponible: ${fmt(u.b)}`,`IVA 16%: ${fmt(u.iva)}`,`IGTF 3%: ${fmt(u.igtf)}`,`*Total: ${fmt(u.tot)}*`);
-    if(s)L.push('','*Pago en Bs*',`Base imponible: ${fbs(s.b)}`,`IVA 16%: ${fbs(s.iva)}`,`*Total: ${fbs(s.tot)}*`);
-    L.push('');}
-  L.push('Precios sujetos a cambio sin previo aviso.','Ideatex — Calidad que se teje con experiencia');
-  return L.join('\n');
-}
-function openQuote(){
-  cur=null;
-  $('#sheet').innerHTML=`<button class="x" id="x" aria-label="Cerrar">×</button><div class="sh-in" style="grid-template-columns:1fr;max-width:620px">
-   <div class="det"><div><span class="cat">${CLI?'Calcula cuánto te sale':'Herramienta de ventas'}</span><h2>${CLI?'Mi pedido estimado':'Cotización'}</h2></div>
-   <div class="client"><label class="cat" for="cli">${CLI?'Tu nombre o empresa':'Cliente'}</label><input id="cli" placeholder="${CLI?'Ej. Confecciones Caracas':'Nombre del cliente o empresa'}"></div>
-   <div class="ql">${cart.map((l,i)=>`<div class="qrow"><span>${l.n}<small class="num">${String(l.q).replace('.',',')} ${uword(l.u)} × ${fmt(l.p)}</small></span><b class="num">${fmt(l.p*l.q)}</b><button class="rm" data-rm="${i}" aria-label="Quitar ${l.n}">×</button></div>`).join('')||'<p class="empty">Todavía no hay telas en la cotización.</p>'}</div>
-   ${cart.length?desg(sumT(usdT),sumT(bsT),"Totales"):""}${false?`<div class="tot" style="font-size:15px"><span>${CLI?'Total en Bs':'Pagando en Bs <small style="font:500 12px var(--f-body);color:var(--muted)">IVA incluido</small>'}</span><span class="num">${fbs(cartBs())}</span></div>`:""}
-   <p class="note">${CLI?'Precios en $ y en Bs del día. El IGTF aplica solo al pago en divisas. Para hacer tu pedido escríbele a una de nuestras vendedoras: ella te confirma disponibilidad, colores y precio final.':'El IGTF aplica solo al pago en divisas.'}</p>
-   ${CLI?`<div class="acts">${waBtns(quoteText(),'Enviar a',true)}<button class="btn ghost" id="clr">Vaciar</button></div>`:`<div class="acts"><button class="btn" id="cpq">Copiar cotización</button><a class="btn wa" id="waq" target="_blank" rel="noopener" href="#">Enviar por WhatsApp</a><button class="btn ghost" id="clr">Vaciar</button></div>`}
-   </div></div>`;
-  const upd=()=>{const w=$('#waq');if(w)w.href='https://wa.me/?text='+encodeURIComponent(quoteText());document.querySelectorAll('[data-wn]').forEach(a=>a.href=waUrl(a.dataset.wn,quoteText()))};upd();$('#cli').addEventListener('input',upd);
-  $('#scrim').hidden=false;$('#sheet').hidden=false;document.body.style.overflow='hidden';
-}
-
-document.addEventListener('click',e=>{
-  const t=e.target.closest('button,a');if(!t)return;
-  if(t.dataset.f){fam=t.dataset.f;renderFams();render();window.scrollTo({top:0});return}
-  if(t.classList.contains('card'))return open(t.dataset.id);
-  if(t.id==='x')return close();
-  if(t.id==='tedit'){editT=true;drawTasa();$('#tin').focus();return}
-  if(t.id==='tcancel'){editT=false;drawTasa();return}
-  if(t.id==='tsave'){const n=parseFloat(String($('#tin').value).replace(/\./g,'').replace(',','.'));if(!(n>0))return toast('Escribe la tasa, ej. 881,69');
-    const f=new Date().toLocaleDateString('es-VE',{day:'2-digit',month:'2-digit',year:'numeric'});TASA={v:n,f,src:'manual'};try{localStorage.setItem('idx-tasa',JSON.stringify(TASA))}catch(e){}
-    editT=false;drawTasa();render();drawTray();
-    if(tdoc)tdoc.set({v:n,f}).then(()=>toast('Tasa guardada para todo el equipo'),()=>toast('Tasa aplicada solo en este equipo'));else toast('Tasa aplicada en este equipo');return}
-  if(t.dataset.g){gi=+t.dataset.g;drawSheet();return}
-  if(t.dataset.v){vi=+t.dataset.v;drawSheet();return}
-  if(t.dataset.q){const v=cur.v[vi];qtyv=Math.max(0,Math.round((parseFloat(String($('#qty').value).replace(',','.'))||0)+ +t.dataset.q));$('#qty').value=qtyv;$('#subt').textContent=subTxt(v,qtyv);return}
-  if(t.id==='add'){const v=cur.v[vi];if(!(qtyv>0))return toast('Indica una cantidad');cart.push({n:cur.name+(v.label?' · '+v.label:''),p:v.p,piva:v.piva||null,pbs:v.pbs||v.b||null,u:v.unit,q:qtyv});save();drawTray();toast(CLI?'Agregada a tu pedido':'Agregada a la cotización');close();return}
-  if(t.id==='cp')return copy(vtext(cur,cur.v[vi]));
-  if(t.id==='tray')return openQuote();
-  if(t.dataset.rm){cart.splice(+t.dataset.rm,1);save();drawTray();openQuote();return}
-  if(t.id==='cpq')return copy(quoteText());
-  if(t.id==='clr'){cart=[];save();drawTray();close();toast('Cotización vaciada');return}
-});
-document.addEventListener('input',e=>{
-  if(e.target.id==='q'){q=e.target.value;render()}
-  if(e.target.id==='qty'&&cur){qtyv=parseFloat(e.target.value.replace(',','.'))||0;$('#subt').textContent=subTxt(cur.v[vi],qtyv)}
-});
-$('#scrim').addEventListener('click',close);
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#sheet').hidden)close()});
-if(CLI)$('#tlab').textContent='Mi pedido';
-drawTasa();renderFams();render();drawTray();
+const v=pickVend(), url='https://wa.me/'+v.n+'?text='+encodeURIComponent('Hola IDEATEX, quisiera información sobre sus telas.');
+document.getElementById('wa').href=url;document.getElementById('wa2').href=url;
 </script>
-</body></html>
+</body>
+</html>
