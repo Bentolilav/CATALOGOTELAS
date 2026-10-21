@@ -30,7 +30,13 @@ header.band{background:var(--band);color:var(--bandfg)}
 header .wrap{padding-block:22px 18px;display:flex;flex-wrap:wrap;gap:14px 24px;align-items:flex-end;justify-content:space-between}
 .brand img{height:34px;width:auto;display:block}
 .brand p{margin:10px 0 0;font:600 12px/1.3 var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
-.brand h1{margin:12px 0 0;font:700 clamp(22px,4vw,30px)/1.15 var(--f-display);text-wrap:balance}
+.brand h1{margin:12px 0 0;font:800 clamp(22px,4vw,32px)/1.1 var(--f-display);text-transform:uppercase;letter-spacing:.04em}
+.brand .sub{margin:8px 0 0;font:500 15px/1.4 var(--f-body);letter-spacing:0;text-transform:none;color:var(--bandfg);opacity:.85}
+header.band .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+header.band .mos{display:grid;grid-template-columns:repeat(4,72px);gap:6px;flex:none}
+header.band .mos img{aspect-ratio:1/1;border-radius:10px}
+header.band .mos img:nth-child(1){border-top-left-radius:22px}header.band .mos img:nth-child(4){border-bottom-right-radius:22px}
+@media (max-width:640px){header.band .wrap{flex-direction:column;align-items:flex-start}header.band .mos{grid-template-columns:repeat(4,1fr);width:100%}}
 .hmeta{font-size:12.5px;color:#C9D6E4;max-width:340px}
 .hmeta b{color:#fff;font-weight:600}
 
@@ -140,7 +146,7 @@ textarea.fallback{width:100%;min-height:140px;border:1px solid var(--line);borde
 .kgx b{font-family:var(--f-display)}
 .kgx ul{margin:6px 0 0;padding-left:18px}
 .ref{font:500 11.5px var(--f-body);color:var(--muted);letter-spacing:.02em}
-.home .wrap{padding-block:34px 10px;display:flex;flex-direction:column;gap:34px}
+.home .wrap{padding-block:24px 10px;display:flex;flex-direction:column;gap:34px}
 .hi{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
 @media (max-width:820px){.hi{grid-template-columns:1fr}}
 .hi .eb{font:600 12px var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--sec)}
@@ -181,37 +187,13 @@ footer .wrap{padding-block:18px 100px;display:flex;flex-wrap:wrap;gap:6px 20px;j
     <div class="brand">
       <a href="./" aria-label="Ir al inicio de IDEATEX"><img src="logo-w.png" alt="IDEATEX" width="187" height="34"></a>
       <h1>Catálogo de telas</h1>
-    </div>
-  </div>
-</header>
-<section class="home" id="inicio"><div class="wrap">
-  <div class="hi">
-    <div>
-      <span class="eb">Bienvenido a IDEATEX</span>
-      <h2>Más de 35 años tejiendo calidad en Venezuela</h2>
-      <p>Somos una empresa familiar nacida en Caracas. Tres generaciones después, seguimos fabricando, importando y distribuyendo telas con el mismo cuidado del primer día.</p>
-      <p>Sabemos que detrás de cada pedido hay un proyecto, una marca o un negocio que te importa. Por eso trabajamos con un solo estándar: <b>hacerlo bien, o no hacerlo.</b></p>
+      <p class="sub">Más de 35 años tejiendo calidad en Venezuela</p>
     </div>
     <div class="mos" id="mos" aria-hidden="true"></div>
   </div>
-  <div class="mv">
-    <div><h3>Misión</h3><p>Proveer telas de la más alta calidad, con innovación constante y un servicio cercano, para que nuestros clientes construyan productos y marcas que perduren.</p></div>
-    <div><h3>Visión</h3><p>Ser la empresa líder y de referencia textil en Venezuela, reconocida por la excelencia de sus productos, la solidez de sus relaciones comerciales y su capacidad de evolucionar sin perder su esencia.</p></div>
-  </div>
-  <div class="blk"><h3>Nuestros valores</h3><div class="vals">
-    <div><b>Compromiso</b><span>Con nuestros clientes, nuestro equipo y cada tela que sale de nuestras manos.</span></div>
-    <div><b>Disciplina</b><span>La base de una calidad que no se negocia.</span></div>
-    <div><b>Innovación</b><span>Buscamos siempre mejores materiales, procesos y formas de servir.</span></div>
-    <div><b>Calidad</b><span>Nuestro estándar no cambia, sin importar el volumen o la escala.</span></div>
-    <div><b>Legado</b><span>Construimos hoy pensando en las próximas generaciones.</span></div>
-  </div></div>
-  <div class="blk"><h3>Lo que hacemos</h3><div class="uns">
-    <div><b>Telas importadas</b><span>Venta y asesoría técnica en telas de alta gama, seleccionadas de origen holandés, peruano, pakistaní y brasilero.</span></div>
-    <div><b>Servicio técnico de producción</b><span>Desarrollo de proyectos, patronaje, producción y acompañamiento durante todo el proceso de confección.</span></div>
-    <div><b>Prendas listas</b><span>Uniformes, líneas operativas y kits textiles para el hogar, listos para usar o comercializar.</span></div>
-  </div></div>
-  <div class="cta"><q>Ideatex — Calidad que se teje con experiencia</q><a class="btn" href="#catalogo">Ver el catálogo de telas ↓</a></div>
-  <h2 class="cath" id="catalogo">Catálogo de telas</h2>
+</header>
+<section class="home" id="inicio"><div class="wrap">
+  <h2 class="cath" id="catalogo">Cómo comprar</h2>
   <div class="info">
     <div><b>Cómo se venden nuestras telas</b><span>Las telas de punto y deportivas se venden <b>por kilo</b>; las telas planas e impermeables, <b>por metro</b>. En cada tela verás su unidad de venta y, en las de kilo, cuántos metros rinde aproximadamente cada kilo.</span></div>
     <div><b>Compra mínima</b><span><b>3 kg o 3 metros</b> por tela, según su unidad de venta.</span></div>
