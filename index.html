@@ -134,6 +134,11 @@ textarea.fallback{width:100%;min-height:140px;border:1px solid var(--line);borde
 .desg th{font:600 11px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .desg th:first-child,.desg td:first-child{text-align:left;color:var(--muted)}
 .desg tr.t td{font:800 14px var(--f-display);color:var(--fg);border-top:1px solid var(--line)}
+.mt{font-size:12px;color:var(--muted);width:100%}
+.pr .mt b{color:var(--fg);font:600 12.5px var(--f-body)}
+.kgx{background:var(--chip);border-radius:var(--r);padding:12px 14px;font-size:13.5px;line-height:1.5}
+.kgx b{font-family:var(--f-display)}
+.kgx ul{margin:6px 0 0;padding-left:18px}
 footer{border-top:1px solid var(--line);color:var(--muted);font-size:12px}
 footer .wrap{padding-block:18px 100px;display:flex;flex-wrap:wrap;gap:6px 20px;justify-content:space-between}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -177,8 +182,10 @@ const CLI = MODE==='cliente';
 let TASA={v:881.69,f:'lista de precios',src:'lista'};
 if(CLI)TASA={v:/*TASA*/881.0664/*FIN*/,f:''};
 if(!CLI)try{const s=JSON.parse(localStorage.getItem('idx-tasa')||'null');if(s&&s.v)TASA=s}catch(e){}
+const nm=n=>n.toLocaleString('es-VE',{maximumFractionDigits:2});
+const xm=v=>v.ren?{b:v.p/v.ren,t:usdT(v,1).tot/v.ren,bs:bsOf(v)?bsOf(v)/v.ren:null}:null;
 const fbs=n=>'Bs '+n.toLocaleString('es-VE',{minimumFractionDigits:2,maximumFractionDigits:2});
-const subTxt=(v,q)=>fmt(usdT(v,q).tot)+(bsOf(v)?' · '+fbs(bsOf(v)*q):'')+' (con impuestos)';
+const subTxt=(v,q)=>(v.ren&&q?`${nm(q)} kg ≈ ${nm(Math.round(q*v.ren*10)/10)} metros · `:'')+fmt(usdT(v,q).tot)+(bsOf(v)?' · '+fbs(bsOf(v)*q):'')+' (con impuestos)';
 const IVA=1.16;
 const usdT=(v,q)=>{const b=v.p*q,tot=(v.piva||v.p*1.16*1.03)*q,iva=b*.16;return {b,iva,igtf:tot-b-iva,tot}};
 const bsT=(v,q)=>{const x=v.pbs||v.b;if(!x)return null;const b=x*TASA.v*q;return {b,iva:b*.16,tot:b*IVA}};
@@ -231,7 +238,7 @@ function card(it){
   const v=minV(it), many=it.v.length>1;
   const ph=it.img.length?`<img loading="lazy" src="t/${it.img[0]}.jpg" alt="${it.name}">${it.img.length>1?`<span class="cnt">${it.img.length} fotos</span>`:''}`:`<div class="noimg">Foto pendiente</div>`;
   return `<button class="card" data-id="${it.id}"><div class="ph">${ph}</div><div class="cb"><span class="cat">${v.cat||FAM[it.fam]}</span><h3>${it.name}</h3>
-  <div class="pr"><b class="num">${many?'<small>desde </small>':''}${fmt(v.p)}<small>${ulab(v.unit)}</small></b>${v.ren?`<span class="eq num">≈ ${fmt(v.p/v.ren)}/m</span>`:''}${`<span class="bs num">Con impuestos: <b>${fmt(usdT(v,1).tot)}</b>${bsOf(v)?` · <b>${fbs(bsOf(v))}</b>`:''}</span>`}</div></div></button>`;
+  <div class="pr"><b class="num">${many?'<small>desde </small>':''}${fmt(v.p)}<small>${ulab(v.unit)}</small></b>${`<span class="bs num">Con impuestos: <b>${fmt(usdT(v,1).tot)}</b>${bsOf(v)?` · <b>${fbs(bsOf(v))}</b>`:''}</span>`}${v.ren?`<span class="mt num">1 kg rinde ≈ ${nm(v.ren)} m · el metro sale en ≈ <b>${fmt(xm(v).t)}</b> con impuestos</span>`:''}</div></div></button>`;
 }
 function render(){
   const qq=norm(q).trim().split(/\s+/).filter(Boolean);
@@ -252,7 +259,7 @@ function vtext(it,v){
   if(v.comp)L.push(`Composición: ${v.comp}`);
   if(v.den&&!/no aplica/i.test(v.den))L.push(`Densidad: ${v.den}`);
   if(v.anc)L.push(`Ancho: ${v.anc}`);
-  if(v.ren)L.push(`Rendimiento: ${String(v.ren).replace('.',',')} m/kg`);
+  if(v.ren)L.push(`Rendimiento: 1 kg rinde ≈ ${nm(v.ren)} metros · el metro sale en ≈ ${fmt(xm(v).t)} con impuestos${xm(v).bs?` (${fbs(xm(v).bs)} pagando en Bs)`:''}`);
   if(v.rec)L.push(`Ideal para: ${v.rec}`);
   {const u=usdT(v,1),s=bsT(v,1),un=ulab(v.unit);
     L.push('',`*Pago en $* (${un.slice(1)})`,`Base imponible: ${fmt(u.b)} · IVA 16%: ${fmt(u.iva)} · IGTF 3%: ${fmt(u.igtf)}`,`Total: *${fmt(u.tot)}${un}*`);
@@ -265,15 +272,15 @@ function close(){$('#scrim').hidden=true;$('#sheet').hidden=true;document.body.s
 function drawSheet(){
   const it=cur, v=it.v[vi];
   const gal=it.img.length?`<div class="big"><img src="f/${it.img[gi]}.jpg" alt="${it.name}, foto ${gi+1}"></div>${it.img.length>1?`<div class="thumbs">${it.img.map((k,i)=>`<button data-g="${i}" aria-current="${i===gi}" aria-label="Foto ${i+1}"><img src="t/${k}.jpg" alt=""></button>`).join('')}</div>`:''}`:`<div class="big"><div class="ph" style="height:100%"><div class="noimg">Esta tela todavía no tiene foto en la carpeta del catálogo de WhatsApp.</div></div></div>`;
-  const vars=it.v.length>1?`<div class="vars">${it.v.map((x,i)=>`<button class="var" data-v="${i}" aria-pressed="${i===vi}"><span class="vl">${x.label}<small>${x.comp||''}${x.ren?' · '+String(x.ren).replace('.',',')+' m/kg':''}</small></span><span class="vp num"><b>${fmt(x.p)}</b><small>${ulab(x.unit)}${x.ren?' · ≈ '+fmt(x.p/x.ren)+'/m':''}${bsOf(x)?'<br>'+fbs(bsOf(x))+ulab(x.unit)+(CLI?'':' IVA incl.'):''}</small></span></button>`).join('')}</div>`:
-   `<div class="var" aria-pressed="true" style="cursor:default"><span class="vl">Precio base</span><span class="vp num"><b>${fmt(v.p)}</b><small>${ulab(v.unit)}${v.ren?' · ≈ '+fmt(v.p/v.ren)+'/m':''}</small></span></div>`;
+  const vars=it.v.length>1?`<div class="vars">${it.v.map((x,i)=>`<button class="var" data-v="${i}" aria-pressed="${i===vi}"><span class="vl">${x.label}<small>${x.comp||''}${x.ren?' · '+String(x.ren).replace('.',',')+' m/kg':''}</small></span><span class="vp num"><b>${fmt(x.p)}</b><small>${ulab(x.unit)}${x.ren?' · metro ≈ '+fmt(xm(x).t)+' con impuestos':''}${bsOf(x)?'<br>'+fbs(bsOf(x))+ulab(x.unit)+(CLI?'':' IVA incl.'):''}</small></span></button>`).join('')}</div>`:
+   `<div class="var" aria-pressed="true" style="cursor:default"><span class="vl">Precio base</span><span class="vp num"><b>${fmt(v.p)}</b><small>${ulab(v.unit)}${v.ren?'':''}</small></span></div>`;
   const row=(t,d)=>d&&!/^no aplica$/i.test(d)?`<dt>${t}</dt><dd>${d}</dd>`:'';
   $('#sheet').innerHTML=`<button class="x" id="x" aria-label="Cerrar">×</button><div class="sh-in">
    <div class="gal">${gal}</div>
    <div class="det"><div><span class="cat">${FAM[it.fam]}${v.cat?' · '+v.cat:''}</span><h2>${it.name}</h2></div>
    ${vars}
-   <dl class="ficha">${row('Referencia',v.ref)}${row('Composición',v.comp)}${row('Densidad',v.den)}${row('Ancho',v.anc)}${v.ren?row('Rendimiento',String(v.ren).replace('.',',')+' m/kg'):''}${row('Usos',v.rec)}</dl>
-   ${desg(usdT(v,1),bsT(v,1),'Precio '+ulab(v.unit))+((v.pbs||v.b)?'':'<p class="note">Esta tela no tiene precio para pago en Bs en la lista.</p>')}
+   <dl class="ficha">${row('Referencia',v.ref)}${row('Composición',v.comp)}${row('Densidad',v.den)}${row('Ancho',v.anc)}${v.ren?row('Rendimiento','1 kg rinde ≈ '+nm(v.ren)+' metros'):''}${row('Usos',v.rec)}</dl>
+   ${v.ren?`<div class="kgx"><b>¿Cuánto sale por metro?</b> Esta tela se vende por kilo. Cada kilo rinde aproximadamente <b>${nm(v.ren)} metros</b>${v.anc?` de tela de ${(a=>/m/i.test(a)?a.toLowerCase():a+' m')(v.anc.replace(/\s*\(.*\)/,'').trim())} de ancho`:''}, así que el metro sale aproximadamente en:<ul><li><b>${fmt(xm(v).b)}</b> sin impuestos</li><li><b>${fmt(xm(v).t)}</b> con impuestos, pagando en $</li>${xm(v).bs?`<li><b>${fbs(xm(v).bs)}</b> con impuestos, pagando en Bs</li>`:''}</ul>Para saber cuántos kilos necesitas, divide los metros entre ${nm(v.ren)}. Ejemplo: 10 metros ≈ ${nm(Math.ceil(10/v.ren*10)/10)} kg.</div>`:''}${desg(usdT(v,1),bsT(v,1),'Precio '+ulab(v.unit))+((v.pbs||v.b)?'':'<p class="note">Esta tela no tiene precio para pago en Bs en la lista.</p>')}
    <div class="quote"><label for="qty">Cantidad (${uword(v.unit)})</label>
      <div class="qty"><button data-q="-1" aria-label="Menos">−</button><input id="qty" inputmode="decimal" value="${qtyv}"><button data-q="1" aria-label="Más">+</button></div>
      <span class="sub">Subtotal <b class="num" id="subt">${subTxt(v,qtyv)}</b></span>
