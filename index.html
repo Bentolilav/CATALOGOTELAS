@@ -81,7 +81,8 @@ section .lede{margin:0 0 14px;color:var(--muted);font-size:13.5px;max-width:65ch
 .scrim{position:fixed;inset:0;background:rgba(10,16,24,.55);z-index:40}
 .sheet{position:fixed;z-index:41;left:0;right:0;bottom:0;max-height:92vh;overflow:auto;background:var(--surface);border-radius:16px 16px 0 0;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));box-shadow:0 -10px 40px rgba(0,0,0,.25)}
 @media (min-width:860px){.sheet{left:50%;right:auto;bottom:auto;top:50%;transform:translate(-50%,-50%);width:min(940px,94vw);max-height:90vh;border-radius:16px;padding-bottom:20px}}
-@media (min-width:1100px){.sheet{width:min(1320px,96vw);max-height:94vh}.sh-in{grid-template-columns:.95fr 1fr 1fr!important;align-items:start}.gal .big{max-height:62vh}.sheet .kgx{font-size:13px}}
+@media (min-width:1100px){.sheet{width:min(1320px,96vw);max-height:94vh}.sh-in:not(.one){grid-template-columns:.95fr 1fr 1fr;align-items:start}.gal .big{max-height:62vh}.sheet .kgx{font-size:13px}}
+.sh-in.one{grid-template-columns:1fr!important;max-width:640px;margin:0 auto}.sheet:has(.sh-in.one){width:min(700px,94vw)}
 @media (min-width:860px) and (max-width:1099px){.sh-in .gal{grid-row:span 2}.sh-in{align-items:start}}
 @media (max-width:859px){.sh-in .gal{display:contents}.sh-in .big,.sh-in .thumbs{order:0}.sh-in .det{order:1}.sh-in .gal .kgx{order:2}.sh-in .det+.det{order:3}}
 .sh-in{padding:16px max(18px,env(safe-area-inset-right,0px)) 0 max(18px,env(safe-area-inset-left,0px));display:grid;gap:20px}
@@ -376,7 +377,7 @@ function quoteText(){
 }
 function openQuote(){
   cur=null;
-  $('#sheet').innerHTML=`<button class="x" id="x" aria-label="Cerrar">×</button><div class="sh-in" style="grid-template-columns:1fr;max-width:620px">
+  $('#sheet').innerHTML=`<button class="x" id="x" aria-label="Cerrar">×</button><div class="sh-in one">
    <div class="det"><div><span class="cat">${CLI?'Calcula cuánto te sale':'Herramienta de ventas'}</span><h2>${CLI?'Mi pedido estimado':'Cotización'}</h2></div>
    <div class="client"><label class="cat" for="cli">${CLI?'Tu nombre o empresa':'Cliente'}</label><input id="cli" placeholder="${CLI?'Ej. Confecciones Caracas':'Nombre del cliente o empresa'}"></div>
    <div class="ql">${cart.map((l,i)=>`<div class="qrow"><span>${l.n}<small class="num">${String(l.q).replace('.',',')} ${uword(l.u)} × ${fmt(l.p)}</small></span><b class="num">${fmt(l.p*l.q)}</b><button class="rm" data-rm="${i}" aria-label="Quitar ${l.n}">×</button></div>`).join('')||'<p class="empty">Todavía no hay telas en la cotización.</p>'}</div>
